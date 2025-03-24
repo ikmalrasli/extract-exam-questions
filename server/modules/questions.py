@@ -47,7 +47,8 @@ def build_extract_section_data_prompt(section_info: dict):
         1. ANALYZE the provided PDF content for {section_info['name']}, Pages {section_info['start_page']} to {section_info['end_page']}
         2. Extract questions {question_range}
         3. Follow the JSON structure format shown here: {reference_structure}
-        4. Use ONLY content from the provided PDF, DO NOT COPY FROM REFERENCE
+        4. Use ONLY content from the provided PDF.
+        5. **DO NOT COPY CONTENT FROM REFERENCE JSON**
         
         REQUIREMENTS:
         - Return ONLY valid JSON
