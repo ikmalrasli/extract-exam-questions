@@ -46,13 +46,13 @@ onMounted(() => {
   <div class="flex h-[92%] w-full">
     <JSONEditor
       v-if="documentDetail && documentDetail.data"
-      class="h-full overflow-auto w-2/3" :sections="documentDetail.data"
+      class="h-full overflow-auto w-1/2" :sections="documentDetail.data"
     />
     <PDFViewerWithNavigation
       v-if="documentDetail && documentDetail.file_url"
       :id="id"
-      class="w-1/3"
-      :scale="0.60"
+      class="w-1/2"
+      :scale="1.00"
       :file-name="documentDetail.file_name"
       :fileURL="documentDetail.file_url"
     />
