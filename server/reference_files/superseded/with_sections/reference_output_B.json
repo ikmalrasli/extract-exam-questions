@@ -1,0 +1,380 @@
+{
+  "main_questions": [
+    {
+      "number": "9",
+      "content_flow": [
+        {
+          "type": "text",
+          "text": {
+            "malay": "Rajah 9.1 menunjukkan struktur ringkas sebuah sistem hidraulik.",
+            "english": "Diagram 9.1 shows a simple structure of a hydraulic system."
+          }
+        },
+        {
+          "type": "diagram",
+          "name": "Diagram 9.1",
+          "page": 27
+        },
+        {
+          "type": "question",
+          "number": "9(a)"
+        },
+        {
+          "type": "question",
+          "number": "9(b)"
+        },
+        {
+          "type": "question",
+          "number": "9(c)"
+        },
+        {
+          "type": "question",
+          "number": "9(d)"
+        }
+      ],
+      "questions": [
+        {
+          "number": "9(a)",
+          "marks": 1,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Nyatakan prinsip yang diaplikasikan pada sistem hidraulik itu.",
+                "english": "State the principle applied to the hydraulic system."
+              }
+            }
+          ]
+        },
+        {
+          "number": "9(b)",
+          "marks": 4,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Terangkan prinsip kerja sistem hidraulik.",
+                "english": "Explain the working principle of the hydraulic system."
+              }
+            }
+          ]
+        },
+        {
+          "number": "9(c)",
+          "marks": 10,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Rajah 9.2 menunjukkan sebuah jambatan hidaulik.",
+                "english": "Diagram 9.2 shows a hydraulic bridge."
+              }
+            },
+            {
+              "type": "diagram",
+              "name": "Diagram 9.2",
+              "page": 28
+            },
+            {
+              "type": "text",
+              "text": {
+                "malay": "Anda dikehendaki menyiasat ciri-ciri bagi jambatan hidraulik seperti yang ditunjukkan dalam Jadual 2.",
+                "english": "You are required to investigate the characteristics of a hydraulic bridge as shown in Table 2."
+              }
+            },
+            {
+              "type": "table",
+              "name": "Table 2",
+              "page": 28
+            },
+            {
+              "type": "text",
+              "text": {
+                "malay": "Terangkan kesesuaian setiap ciri jambatan hidraulik. Tentukan jambatan hidraulik yang dapat dikendalikan dengan lebih cekap.",
+                "english": "Explain the suitability of each characteristic of hydraulic bridge. Determine the hydraulic bridge that can be operated more effective."
+              }
+            }
+          ]
+        },
+        {
+          "number": "9(d)",
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Dalam model jambatan hidraulik itu, luas keratan rentas bgi omboh besar dan omboh kecil masing-masing adalah 0.01 m² dan 0.002 m². Daya 5 N dikenakan pada omboh kecil.",
+                "english": "In the model of hydraulic bridge, the cross-sectional area of the large piston and the small piston are 0.01 m² and 0.002 m² respectively. A force of 5 N is applied to the small piston."
+              }
+            },
+            {
+              "type": "text",
+              "text": {
+                "malay": "Hitung",
+                "english": "Calculate"
+              }
+            },
+            {
+              "type": "sub_question",
+              "number": "9(d)(i)"
+            },
+            {
+              "type": "sub_question",
+              "number": "9(d)(ii)"
+            }
+          ],
+          "sub_questions": [
+            {
+              "number": "9(d)(i)",
+              "marks": 2,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "tekanan, P yang terhasil pada omboh kecil.",
+                    "english": "the pressure, P produced on the small piston."
+                  }
+                }
+              ]
+            },
+            {
+              "number": "9(d)(ii)",
+              "marks": 3,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "daya, F yang dikenakan pada omboh besar.",
+                    "english": "the force, F applied to the large piston."
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": "10",
+      "content_flow": [
+        {
+          "type": "text",
+          "text": {
+            "malay": "Rajah 10.1 menunjukkan corak muka gelombang bagi gelombang air.",
+            "english": "Diagram 10.1 shows the wavefront pattern of water wave."
+          }
+        },
+        {
+          "type": "diagram",
+          "name": "Diagram 10.1",
+          "page": 30
+        },
+        {
+          "type": "question",
+          "number": "10(a)"
+        },
+        {
+          "type": "question",
+          "number": "10(b)"
+        },
+        {
+          "type": "question",
+          "number": "10(c)"
+        },
+        {
+          "type": "question",
+          "number": "10(d)"
+        }
+      ],
+      "questions": [
+        {
+          "number": "10(a)",
+          "marks": 1,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Namakan fenomena yang terlibat.",
+                "english": "Name the phenomenon involved."
+              }
+            }
+          ]
+        },
+        {
+          "number": "10(b)",
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Berdasarkan Rajah 10.1,",
+                "english": "Based on Diagram 10.1,"
+              }
+            },
+            {
+              "type": "sub_question",
+              "number": "10(b)(i)"
+            },
+            {
+              "type": "sub_question",
+              "number": "10(b)(ii)"
+            }
+          ],
+          "sub_questions": [
+            {
+              "number": "10(b)(i)",
+              "marks": 2,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "apakah yang berlaku kepada amplitud dan laju gelombang tersebut selepas melalui penghalang?",
+                    "english": "what happened to the amplitude and the speed of the wave after passes through the barrier?"
+                  }
+                }
+              ]
+            },
+            {
+              "number": "10(b)(ii)",
+              "marks": 2,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "Jelaskan jawapan anda di 10(b)(i).",
+                    "english": "Explain your answer in 10(b)(i)."
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "number": "10(c)",
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Rajah 10.2 menunjukkan menara pemancar yang digunakan dalam pemancaran gelombang elektromagnet untuk tujuan telekomunikasi.",
+                "english": "Diagram 10.2 shows a transmission tower being used for transmission of electromagnetic waves in telecommunication."
+              }
+            },
+            {
+              "type": "diagram",
+              "name": "Diagram 10.2",
+              "page": 31
+            },
+            {
+              "type": "text",
+              "text": {
+                "malay": "Jadual 3 menunjukkan spesifikasi bagi empat sistem pemancaran S, T, U dan V yang boleh digunakan untuk memancarkan gelombang elektromagnet dalam telekomunikasi.",
+                "english": "Table 3 shows the specifications of four transmitting systems S, T, U and V, that can be used for transmitting electromagnetic waves in telecommunication."
+              }
+            },
+            {
+              "type": "table",
+              "name": "Table 3",
+              "page": 31
+            },
+            {
+              "type": "text",
+              "text": {
+                "malay": "Kaji dan tentukan sistem pemancaran yang paling sesuai untuk meningkatkan kualiti penghantaran isyarat.",
+                "english": "Study and determine the most suitable transmitting systems to improve the quality of transmission of signal."
+              }
+            },
+            {
+              "type": "sub_question",
+              "number": "10(c)(i)"
+            },
+            {
+              "type": "sub_question",
+              "number": "10(c)(ii)"
+            }
+          ],
+          "sub_questions": [
+            {
+              "number": "10(c)(i)",
+              "marks": 8,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "Terangkan kesesuaian bagi setiap spesifikasi.",
+                    "english": "Explain the suitability for each specification."
+                  }
+                }
+              ]
+            },
+            {
+              "number": "10(c)(ii)",
+              "marks": 2,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "Pilih sustem yang paling sesuai. Berikan sebab untuk pilihan anda.",
+                    "english": "Choose the most suitable system. Give reason for your choice."
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "number": "10(d)",
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Bot nelayan yang besar menggunakan gelombang ultrasonik untuk mengesan sekumpulan ikan di bawah bot.",
+                "english": "A large fishing boat uses ultrasonic wave to detect the location of a shoal of fish below the boat."
+              }
+            },
+            {
+              "type": "text",
+              "text": {
+                "malay": "Laju gelombang ultrasonik 1500 m s⁻¹ ditujukan ke arah ikan, hitungkan",
+                "english": "Ultrasonic wave of speed 1500 m s⁻¹ is directed towards the fish, calculate"
+              }
+            },
+            {
+              "type": "sub_question",
+              "number": "10(d)(i)"
+            },
+            {
+              "type": "sub_question",
+              "number": "10(d)(ii)"
+            }
+          ],
+          "sub_questions": [
+            {
+              "number": "10(d)(i)",
+              "marks": 2,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "frekuensi gelombang itu, jika panjang gelombang ialah 3.2 cm,",
+                    "english": "the wave frequency, if the wavelength is 3.2 cm,"
+                  }
+                }
+              ]
+            },
+            {
+              "number": "10(d)(ii)",
+              "marks": 3,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "kedalaman ikan, jika gema diterima selepas 73 ms.",
+                    "english": "the depth of the fish if the echo is received after 73 ms."
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

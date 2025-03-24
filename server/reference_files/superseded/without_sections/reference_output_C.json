@@ -1,0 +1,141 @@
+[
+  {
+    "number": "11",
+    "content_flow": [
+      {
+        "type": "text",
+        "text": {
+          "malay": "Rajah 11.1 menunjukkan seorang budak bermain kuda berspring.",
+          "english": "Diagram 11.1 shows a child playing a horse spring."
+        }
+      },
+      {
+        "type": "diagram",
+        "name": "Diagram 11.1",
+        "page": 33
+      },
+      {
+        "type": "question",
+        "number": "11(a)"
+      },
+      {
+        "type": "question",
+        "number": "11(b)"
+      },
+      {
+        "type": "question",
+        "number": "11(c)"
+      },
+      {
+        "type": "question",
+        "number": "11(d)"
+      }
+    ],
+    "questions": [
+      {
+        "number": "11(a)",
+        "marks": 1,
+        "content_flow": [
+          {
+            "type": "text",
+            "text": {
+              "malay": "Nyatakan hukum Hooke.",
+              "english": "State Hooke's law."
+            }
+          }
+        ]
+      },
+      {
+        "number": "11(b)",
+        "marks": 4,
+        "content_flow": [
+          {
+            "type": "text",
+            "text": {
+              "malay": "Rajah 11.2(a) menunjukkan panjang asal spring itu sebelum satu beban diletakkan di atasnya.\\nRajah 11.2(b) menunjukkan spring yang sama selepas beban itu dialihkan.",
+              "english": "Diagram 11.2(a) shows the original length of the spring before a load is placed on it.\\nDiagram 11.2(b) shows the same spring after the load is removed."
+            }
+          },
+          {
+            "type": "row",
+            "layout": "2-columns",
+            "items": [
+              {
+                "type": "diagram",
+                "name": "Diagram 11.2(a)",
+                "page": 33
+              },
+              {
+                "type": "diagram",
+                "name": "Diagram 11.2(b)",
+                "page": 33
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": {
+              "malay": "Menggunakan konsep fizik yang betul, jelaskan perubahan keadaan spring itu.",
+              "english": "Using the correct physics concept, explain the changes of the condition of the spring."
+            }
+          }
+        ]
+      },
+      {
+        "number": "11(c)",
+        "marks": 5,
+        "content_flow": [
+          {
+            "type": "text",
+            "text": {
+              "malay": "Rajah 11.3(a) menunjukkan panjang awal, L₀ spring A dan spring B.\\nRajah 11.3(b) menunjukkan panjang, L₁ selepas diletakkan beban 100 N di atasnya.",
+              "english": "Diagram 11.3(a) shows the initial length, L₀ of spring A and spring B.\\nDiagram 11.3(b) shows the length of the spring, L₁ after a load of 100 N is put on it."
+            }
+          },
+          {
+            "type": "diagram",
+            "name": "Diagram 11.3(a)",
+            "page": 34
+          },
+          {
+            "type": "diagram",
+            "name": "Diagram 11.3(b)",
+            "page": 34
+          },
+          {
+            "type": "text",
+            "text": {
+              "malay": "Dengan menggunakan Rajah 11.3(a) dan 11.3(b), bandingkan panjang awal spring, ketebalan spring dan pemampatan spring.\\nHubungkaitkan ketebalan spring dengan pemampatan spring untuk membuat kesimpulan berkaitan hubungan antara ketebalan spring dan pemalar spring.",
+              "english": "By using Diagram 11.3(a) and 11.3(b), compare the initial length of spring, thickness of spring and compression of the spring.\\nRelate the thickness of the spring and the compression of the spring to make a deduction regarding the relationship between the thickness of spring and the spring constant."
+            }
+          }
+        ]
+      },
+      {
+        "number": "11(d)",
+        "marks": 10,
+        "content_flow": [
+          {
+            "type": "text",
+            "text": {
+              "malay": "Rajah 11.4 menunjukkan sebuah sofa yang menggunakan spring sebagai penyokong beban.",
+              "english": "Diagram 11.4 shows a sofa that uses springs as a load supporter."
+            }
+          },
+          {
+            "type": "diagram",
+            "name": "Diagram 11.4",
+            "page": 35
+          },
+          {
+            "type": "text",
+            "text": {
+              "malay": "Menggunakan konsep fizik yang sesuai, cadangkan penggunaan bahan dan reka bentuk sofa yang sesuai untuk menampung seseorang yang berjisim besar dan lebih selesa.\\nCadangan anda mestilah merangkumi ciri-ciri spring dan ciri tambahan.",
+              "english": "Using appropriate physics concepts, suggest the use of materials and appropriate design of sofa that can accommodate a person with a larger mass and more comfortable.\\nYour proposal must include the characteristics of the spring and the additional features."
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
