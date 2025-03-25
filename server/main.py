@@ -60,6 +60,8 @@ async def analyse_pdf(background_tasks: BackgroundTasks, pdf_file: UploadFile = 
         # rasterized_pdf = get_rasterized_pdf(user_pdf_content)
         # pdf = convert_pdf_to_part(user_pdf_content)
     
+        # return extract_data2(user_pdf_content)
+    
         unique_id = datetime.now().strftime("%Y%m%d%H%M%S") + '_' + pdf_file.filename.lower().replace(" ", "_")
         supabase.storage.from_("files").upload(unique_id, user_pdf_content)
         download_link = supabase.storage.from_("files").get_public_url(unique_id)
@@ -85,7 +87,7 @@ def extract_data(pdf, document_id):
     ranges = [(1, 4), (5, 8), (9, 11)]
     for start, end in ranges:
         attempts = 0
-        max_attempts = 3
+        max_attempts = 5
         success = False
         
         while attempts < max_attempts and not success:
@@ -106,6 +108,7 @@ def extract_data(pdf, document_id):
                 print(f"Error extracting questions for {start} to {end} (Attempt {attempts}): {str(e)}")
                 if attempts == max_attempts:
                     print(f"Failed to extract questions for {start} to {end} after {max_attempts} attempts")
+                    print(response.text)
                     supabase.table("documents").update({"status": "failed"}).eq("id", document_id).execute()
                     raise HTTPException(status_code=500, 
                         detail=f"Failed to extract questions for range {start}-{end} after {max_attempts} attempts")
@@ -113,6 +116,51 @@ def extract_data(pdf, document_id):
     # After all attempts, append the combined main_q to full_json
     full_json.append({"main_questions": combined_main_questions})
     supabase.table("documents").update({"data": full_json, "status": "extracted"}).eq("id", document_id).execute()
+    end_time = time.time()  # Capture the end time
+    elapsed_time = end_time - start_time  # Calculate elapsed time
+    print(f"Total elapsed time: {elapsed_time} seconds")
+    return {
+        "status": "success",
+        "message": "Questions extracted successfully",
+        "elapsed_time": elapsed_time,
+        "data": full_json
+    }
+
+def extract_data2(pdf):
+    start_time = time.time()  # Capture the start time
+    full_json = []
+    combined_main_questions = []  # Initialize a list to hold combined questions
+
+    ranges = [(1, 4), (5, 8), (9, 11)]
+    for start, end in ranges:
+        attempts = 0
+        max_attempts = 5
+        success = False
+        
+        while attempts < max_attempts and not success:
+            attempts += 1
+            print(f"Attempt {attempts}: Extracting questions for {start} to {end}")
+            
+            try:
+                response = get_ai_response(pdf, start, end)
+                response_json = json.loads(response.text)
+                
+                # Combine the main_questions from the response into combined_main_questions
+                if "main_questions" in response_json:
+                    combined_main_questions.extend(response_json["main_questions"])
+                
+                print(f"Questions extracted successfully for {start} to {end}")
+                success = True
+            except Exception as e:
+                print(f"Error extracting questions for {start} to {end} (Attempt {attempts}): {str(e)}")
+                if attempts == max_attempts:
+                    print(f"Failed to extract questions for {start} to {end} after {max_attempts} attempts")
+                    print(response.text)
+                    raise HTTPException(status_code=500, 
+                        detail=f"Failed to extract questions for range {start}-{end} after {max_attempts} attempts")
+    
+    # After all attempts, append the combined main_q to full_json
+    full_json.append({"main_questions": combined_main_questions})
     end_time = time.time()  # Capture the end time
     elapsed_time = end_time - start_time  # Calculate elapsed time
     print(f"Total elapsed time: {elapsed_time} seconds")

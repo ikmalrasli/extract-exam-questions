@@ -38,7 +38,7 @@ def get_ai_response(file, start, end):
      - \"text\": Contains question descriptions and instructions (in english and malay, segregated by "english" and "malay" keys respectively)
      - \"diagram\": Represents figures, charts, or illustrations.
      - \"table\": Represents tabular data extracted from the document.
-     - \"row\": A two-column layout for side-by-side diagrams or elements.
+     - \"row\": A multi-column layout for side-by-side diagrams or elements.
      - \"question\": Marks a question reference. (Only for content_flow array under main_question, *will be multiple according to PDF*)
      - \"sub_question\": Marks a sub_question reference. (Only for content_flow array under question, *will be multiple according to PDF*)
      - "answer_space": Represents the space given for writing down answers.
@@ -70,7 +70,7 @@ def get_ai_response(file, start, end):
                 },
                 {
                     \"type\": \"row\",
-                    \"layout\": \"2-columns\",
+                    \"columns\": <Number of Columns>,
                     \"items\": [
                         {
                             \"type\": \"diagram\",
@@ -191,13 +191,14 @@ def get_ai_response(file, start, end):
 ```
 
 - Row
-    - A two-column layout for side-by-side diagrams or elements.
+    - A multi-column layout for side-by-side diagrams or elements.
     - Extract the layout type and the items within the row.
-    - Example JSON object:
+    - Number of columns MUST match the number of items.
+    - Example 1 JSON object:
 ```json
 {
     \"type\": \"row\",
-    \"layout\": \"2-columns\",
+    \"columns\": 2,
     \"items\": [
         {
             \"type\": \"diagram\",
@@ -208,6 +209,40 @@ def get_ai_response(file, start, end):
             \"type\": \"diagram\",
             \"number\": \"1.2\",
             \"page\": \"2\"
+        }
+    ]
+}
+```
+
+    - Example 2 JSON object:
+```json
+{
+    \"type\": \"row\",
+    \"columns\": 4,
+    \"items\": [
+        {
+            \"type\": \"text\",
+            \"text\": {
+                \"malay\": \"Zarah alfa:\",
+                \"english\": \"Alpha particle:\"
+            }
+        },
+        {
+            \"type\": \"answer_space\",
+            \"format\": \"line\",
+            \"lines\": 1
+        },
+        {
+            \"type\": \"text\",
+            \"text\": {
+                \"malay\": \"Zarah beta:\",
+                \"english\": \"Beta particle:\"
+            }
+        },
+        {
+            \"type\": \"answer_space\",
+            \"format\": \"line\",
+            \"lines\": 1
         }
     ]
 }
@@ -316,7 +351,7 @@ def get_ai_response(file, start, end):
     {
         \"type\": \"answer_space\",
         \"format\": \"line\",
-        \"lines\": \"<Number of lines>\"
+        \"lines\": <Number of lines>
     }
     ```
 
@@ -426,6 +461,10 @@ I am ready to receive and process the next PDF content.
     top_k=40,
     max_output_tokens=8192,
     response_mime_type="application/json",
+    system_instruction=[
+            types.Part.from_text(text="""Your task is to extract PDF files according to the rules, schema and example files given and MUST respond in valid JSON format.
+Avoid null values at ALL COSTS."""),
+        ]
   )
   
   response = client.models.generate_content(

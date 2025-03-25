@@ -12,7 +12,7 @@
         },
         {
           "type": "diagram",
-          "name": "Diagram 1",
+          "number": "1",
           "page": 4
         },
         {
@@ -139,7 +139,7 @@
         },
         {
           "type": "diagram",
-          "name": "Diagram 2.1",
+          "number": "2.1",
           "page": 6
         },
         {
@@ -177,7 +177,7 @@
             },
             {
               "type": "diagram",
-              "name": "Diagram 2.2",
+              "number": "2.2",
               "page": 6
             },
             {
@@ -251,7 +251,7 @@
         },
         {
           "type": "diagram",
-          "name": "Diagram 3.1",
+          "number": "3.1",
           "page": 8
         },
         {
@@ -263,7 +263,7 @@
         },
         {
           "type": "diagram",
-          "name": "Diagram 3.2",
+          "number": "3.2",
           "page": 8
         },
         {
@@ -354,7 +354,7 @@
         },
         {
           "type": "diagram",
-          "name": "Diagram 4.1",
+          "number": "4.1",
           "page": 10
         },
         {
@@ -402,7 +402,7 @@
           "content_flow": [
             {
               "type": "diagram",
-              "name": "Diagram 4.2",
+              "number": "4.2",
               "page": 12
             },
             {
@@ -486,12 +486,12 @@
         },
         {
           "type": "diagram",
-          "name": "Diagram 5.1",
+          "number": "5.1",
           "page": 14
         },
         {
           "type": "diagram",
-          "name": "Diagram 5.2",
+          "number": "5.2",
           "page": 14
         },
         {
@@ -655,7 +655,7 @@
             },
             {
               "type": "diagram",
-              "name": "Diagram 5.3",
+              "number": "5.3",
               "page": 16
             },
             {
@@ -717,16 +717,16 @@
         },
         {
           "type": "row",
-          "layout": "2-columns",
+          "columns": 2,
           "items": [
             {
               "type": "diagram",
-              "name": "Diagram 6.1(a)",
+              "number": "6.1(a)",
               "page": 17
             },
             {
               "type": "diagram",
-              "name": "Diagram 6.1(b)",
+              "number": "6.1(b)",
               "page": 17
             }
           ]
@@ -868,7 +868,7 @@
             },
             {
               "type": "diagram",
-              "name": "Diagram 6.2",
+              "number": "6.2",
               "page": 19
             },
             {
@@ -933,7 +933,7 @@
         },
         {
           "type": "diagram",
-          "name": "Diagram 7.1",
+          "number": "7.1",
           "page": 20
         },
         {
@@ -995,7 +995,7 @@
             },
             {
               "type": "diagram",
-              "name": "Diagram 7.2",
+              "number": "7.2",
               "page": 21
             },
             {
@@ -1007,7 +1007,7 @@
             },
             {
               "type": "table",
-              "name": "Table 1",
+              "number": "1",
               "page": 22
             },
             {
@@ -1111,7 +1111,7 @@
         },
         {
           "type": "diagram",
-          "name": "Diagram 8.1",
+          "number": "8.1",
           "page": 24
         },
         {
@@ -1166,7 +1166,7 @@
             },
             {
               "type": "diagram",
-              "name": "Diagram 8.2",
+              "number": "8.2",
               "page": 25
             },
             {
@@ -1281,7 +1281,7 @@
         },
         {
           "type": "diagram",
-          "name": "Diagram 9.1",
+          "number": "9.1",
           "page": 27
         },
         {
@@ -1328,7 +1328,7 @@
             },
             {
               "type": "diagram",
-              "name": "Diagram 9.2",
+              "number": "9.2",
               "page": 28
             },
             {
@@ -1340,7 +1340,7 @@
             },
             {
               "type": "table",
-              "name": "Table 2",
+              "number": "2",
               "page": 28
             },
             {
@@ -1416,7 +1416,7 @@
         },
         {
           "type": "diagram",
-          "name": "Diagram 10.1",
+          "number": "10.1",
           "page": 30
         },
         {
@@ -1492,7 +1492,7 @@
             },
             {
               "type": "diagram",
-              "name": "Diagram 10.2",
+              "number": "10.2",
               "page": 31
             },
             {
@@ -1504,7 +1504,7 @@
             },
             {
               "type": "table",
-              "name": "Table 3",
+              "number": "3",
               "page": 31
             },
             {
@@ -1611,7 +1611,7 @@
         },
         {
           "type": "diagram",
-          "name": "Diagram 11.1",
+          "number": "11.1",
           "page": 33
         },
         {
@@ -1645,16 +1645,16 @@
             },
             {
               "type": "row",
-              "layout": "2-columns",
+              "columns": 2,
               "items": [
                 {
                   "type": "diagram",
-                  "name": "Diagram 11.2(a)",
+                  "number": "11.2(a)",
                   "page": 33
                 },
                 {
                   "type": "diagram",
-                  "name": "Diagram 11.2(b)",
+                  "number": "11.2(b)",
                   "page": 33
                 }
               ]
@@ -1681,12 +1681,12 @@
             },
             {
               "type": "diagram",
-              "name": "Diagram 11.3(a)",
+              "number": "11.3(a)",
               "page": 34
             },
             {
               "type": "diagram",
-              "name": "Diagram 11.3(b)",
+              "number": "11.3(b)",
               "page": 34
             },
             {
@@ -1711,7 +1711,7 @@
             },
             {
               "type": "diagram",
-              "name": "Diagram 11.4",
+              "number": "11.4",
               "page": 35
             },
             {
