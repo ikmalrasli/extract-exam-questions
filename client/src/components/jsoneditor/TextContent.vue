@@ -21,6 +21,8 @@ const formattedEnglish = computed(() => {
 </script>
 
 <template>
-  <div v-html="formattedMalay"></div>
-  <div class="italic" v-html="formattedEnglish"></div>
+  <div class="flex flex-col gap-2">
+    <div v-html="formattedMalay"></div>
+    <div class="italic" v-html="formattedEnglish"></div>
+  </div>
 </template>

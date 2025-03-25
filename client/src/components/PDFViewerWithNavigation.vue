@@ -56,7 +56,9 @@ export default {
     return {
       currentPage: 1,
       totalPages: 0,
-      localScale: this.scale,
+      localScale: this.scale || 0.8,
+      pdfWidth: null,
+      containerWidth: 0,
 
       isScrolling: false,
       isHovered: false,
@@ -82,12 +84,48 @@ export default {
     },
     scale: {
       type: Number,
-      default: 0.8
+      default: null
     },
+    autoFit: {
+      type: Boolean,
+      default: false
+    }
+  },
+  mounted() {
+    if (this.autoFit) {
+      this.calculateScale();
+      window.addEventListener('resize', this.calculateScale);
+    }
+  },
+  beforeUnmount() {
+    if (this.autoFit) {
+      window.removeEventListener('resize', this.calculateScale);
+    }
   },
   methods: {
+    calculateScale() {
+      const container = this.$el;
+      if (container && this.pdfWidth) {
+        const containerWidth = container.clientWidth;
+        // Subtract some padding to account for margins/borders
+        const availableWidth = containerWidth - 40;
+        this.localScale = availableWidth / this.pdfWidth;
+      }
+    },
     initTotalPages(pages) {
       this.totalPages = pages;
+      // Get PDF dimensions after it's loaded
+      this.$nextTick(async () => {
+        const pdfViewer = this.$refs[this.id + '-ref'];
+        if (pdfViewer && pdfViewer.pdfDocument) {
+          const page = await pdfViewer.pdfDocument.getPage(1);
+          const viewport = page.getViewport({ scale: 1 });
+          this.pdfWidth = viewport.width;
+          if (this.autoFit) {
+            this.calculateScale();
+          }
+        }
+      });
     },
     zoomIn() {
       this.localScale = Math.min(this.localScale + 0.1, 2); 

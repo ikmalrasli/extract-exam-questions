@@ -35,7 +35,7 @@ defineProps({
                   </tr>
                   <tr v-if="content.type === 'answer_space'">
                     <td colspan="3" class="answer-space">
-                      <span v-if="content.format === 'checkbox'">
+                      <span v-if="content.format === 'line'">
                         <div class="checkbox"></div>
                       </span>
                       <span v-else>
@@ -48,8 +48,7 @@ defineProps({
                       colspan="4"
                       style="text-align: right; font-weight: bold"
                     >
-                      <span class="block">[{{ mainQuestion.marks }} Markah]</span>
-                      <span class="block">[{{ mainQuestion.marks }} <em>{{ mainQuestion.marks > 1 ? 'Marks' : 'Mark' }}</em>]</span>
+                      <span>[{{ mainQuestion.marks }} Markahs] \n [{{ mainQuestion.marks }} <em>{{ mainQuestion.marks > 1 ? 'Marks' : 'Mark' }}</em>]</span>
                     </td>
                   </tr>
                 </template>
@@ -79,7 +78,7 @@ defineProps({
                           v-if="content.type === 'answer_space'"
                           class="answer-space"
                         >
-                          <span v-if="content.format === 'checkbox'">
+                          <span v-if="content.format === 'line'">
                             <div class="checkbox"></div>
                           </span>
                           <div v-else-if="content.format === 'multiple-choice'" class="space-y-4">
@@ -102,8 +101,7 @@ defineProps({
                     <td></td>
                     <td></td>
                     <td colspan="2" align="right">
-                      <span class="block">[{{ question.marks }} Markah]</span>
-                      <span class="block">[{{ question.marks }} <em>{{ question.marks > 1 ? 'Marks' : 'Mark' }}</em>]</span>
+                      <span class="line-clamp-none">[{{ question.marks }} Markah][{{ question.marks }} <em>{{ question.marks > 1 ? 'Marks' : 'Mark' }}</em>]</span>
                     </td>
                   </tr>
                   <template
@@ -151,8 +149,7 @@ defineProps({
                       <td></td>
                       <td></td>
                       <td colspan="2">
-                        <span class="block">[{{ subQuestion.marks }} Markah]</span>
-                        <span class="block">[{{ subQuestion.marks }} <em>{{ subQuestion.marks > 1 ? 'Marks' : 'Mark' }}</em>]</span>
+                        <span>[{{ subQuestion.marks }} Markah]\\n[{{ subQuestion.marks }} <em>{{ subQuestion.marks > 1 ? 'Marks' : 'Mark' }}</em>]</span>
                       </td>
                     </tr>
                   </template>

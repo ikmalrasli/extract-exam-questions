@@ -52,7 +52,7 @@ onMounted(() => {
       v-if="documentDetail && documentDetail.file_url"
       :id="id"
       class="w-1/2"
-      :scale="1.00"
+      :auto-fit="true"
       :file-name="documentDetail.file_name"
       :fileURL="documentDetail.file_url"
     />

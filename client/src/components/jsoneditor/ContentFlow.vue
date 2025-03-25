@@ -2,6 +2,7 @@
 import AnswerSpaceContent from './AnswerSpaceContent.vue';
 import DiagramContent from './DiagramContent.vue';
 import TextContent from './TextContent.vue';
+import RowContent from './RowContent.vue';
 
 const props = defineProps({
   content: {
@@ -16,9 +17,12 @@ const props = defineProps({
     <TextContent :content="content" />
   </div>
   <div v-if="content.type === 'diagram'">
-    <DiagramContent />
+    <DiagramContent :content="content" />
   </div>
   <div v-if="content.type === 'answer_space'">
     <AnswerSpaceContent :content="content" />
+  </div>
+  <div v-if="content.type === 'row'">
+    <RowContent :columns="content.columns" :items="content.items"/>
   </div>
 </template>
