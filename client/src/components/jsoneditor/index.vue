@@ -3,27 +3,18 @@ import ContentFlow from './ContentFlow.vue';
 import MainQuestionContentFlow from './MainQuestionContentFlow.vue';
 import MarksDisplay from './MarksDisplay.vue';
 
-defineProps({
+const props = defineProps({
   sections: {
     type: Array,
     required: false
   }
 });
-
-// const validContentTypes = (content) => {
-//   if (content.type === 'text') {
-//     // Check if the content has both 'malay' and 'english' properties
-//     return content.text && content.text.malay && content.text.english;
-//   }
-//   return content.type === 'diagram' || content.type === 'answer_space';
-// };
-
 </script>
 
 <template>
-  <div class="p-6 space-y-4 text-black">
+  <div class="p-4 text-black">
     <div v-for="section in sections">
-      <div class="space-y-8 mt-4">
+      <div class="space-y-8">
         <template v-for="mainQuestion in section.main_questions" :key="mainQuestion.number">
           <div class="border p-4 rounded-md bg-white shadow-md text-left">
             <table class="w-full border-collapse border mt-2 bg-gray-50" style="table-layout: auto;">

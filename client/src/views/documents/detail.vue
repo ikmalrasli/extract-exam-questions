@@ -20,6 +20,7 @@ const fetchDocumentDetail = async () => {
     const { data, status, message } = response.data;
     documentDetail.value = data;
     console.log(documentDetail.value)
+    console.log(documentDetail.data)
   } catch (error) {
     console.error(error)
   }
@@ -32,7 +33,11 @@ onMounted(() => {
 
 <template>
   <div class="space-y-2 mb-4">
-    <h1 class="text-xl font-semibold">Document Detail</h1>
+    <div class="flex justify-between items-center">
+      <h1 class="text-xl font-semibold">Document Detail</h1>
+      
+    </div>
+
     <nav>
       <ol class="list-reset flex items-center">
         <li>
@@ -42,20 +47,13 @@ onMounted(() => {
         <li v-if="documentDetail" class="text-gray-500">{{ documentDetail.file_name }}</li>
       </ol>
     </nav>
+
   </div>
   <div class="flex h-[92%] w-full">
-    <JSONEditor
-      v-if="documentDetail && documentDetail.data"
-      class="h-full overflow-auto w-1/2" :sections="documentDetail.data"
-    />
-    <PDFViewerWithNavigation
-      v-if="documentDetail && documentDetail.file_url"
-      :id="id"
-      class="w-1/2"
-      :auto-fit="true"
-      :file-name="documentDetail.file_name"
-      :fileURL="documentDetail.file_url"
-    />
+    <JSONEditor v-if="documentDetail && documentDetail.data" class="h-full overflow-auto w-1/2"
+      :sections="documentDetail.data" />
+    <PDFViewerWithNavigation v-if="documentDetail && documentDetail.file_url" :id="id" class="w-1/2" :auto-fit="true"
+      :file-name="documentDetail.file_name" :fileURL="documentDetail.file_url" />
   </div>
 </template>
 

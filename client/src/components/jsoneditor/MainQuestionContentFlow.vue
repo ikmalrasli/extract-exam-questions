@@ -36,7 +36,7 @@ defineProps({
   <tr v-if="content.type === 'row'">
     <td></td>
     <td colspan="3">
-      <RowContent :columns="content.columns" :items="content.items" />
+      <RowContent :content="content.items" />
     </td>
   </tr>
 </template>

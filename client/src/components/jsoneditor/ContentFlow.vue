@@ -23,6 +23,6 @@ const props = defineProps({
     <AnswerSpaceContent :content="content" />
   </div>
   <div v-if="content.type === 'row'">
-    <RowContent :columns="content.columns" :items="content.items"/>
+    <RowContent :content="content.items"/>
   </div>
 </template>
