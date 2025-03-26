@@ -3,8 +3,9 @@ from datetime import datetime
 from dotenv import load_dotenv
 import time
 
-from fastapi import FastAPI, HTTPException, File, UploadFile, BackgroundTasks
+from fastapi import FastAPI, HTTPException, File, UploadFile, BackgroundTasks, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 
 from modules.new import newPrompt, newPrompt2
 from modules.utils import get_reference_pdf, get_rasterized_pdf
@@ -12,6 +13,10 @@ from modules.utils import get_reference_pdf, get_rasterized_pdf
 from config.ai_client import get_ai_response
 
 from db.init import init_db
+
+from docx import Document
+from bs4 import BeautifulSoup
+from pydantic import BaseModel
 
 load_dotenv()
 
@@ -170,3 +175,4 @@ def extract_data2(pdf):
         "elapsed_time": elapsed_time,
         "data": full_json
     }
+    

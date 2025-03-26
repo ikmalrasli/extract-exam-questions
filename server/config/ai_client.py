@@ -25,6 +25,7 @@ def get_ai_response(file, start, end):
             parts=[
                 types.Part.from_text(text="""These are the rules and schema which you will use to extract contents from provided exam question papers (PDF) later:
 **GENERAL RULES**
+- Avoid null values at ALL COSTS.
 - Each main_question, question, and sub-question consists of a number and a content_flow array.
 - The JSON output must follow this format:
      - main_questions → Top-level questions numbered \"1\", \"2\", \"3\", etc.
@@ -35,13 +36,11 @@ def get_ai_response(file, start, end):
 - Extract marks and add its key to their related questions/sub_questions.
 - Every main_question, question, sub_question has a content_flow key.
 - The content_flow array can contain any of the following in any order, **depending on how they appear in the PDF**:
-     - \"text\": Contains question descriptions and instructions (in english and malay, segregated by "english" and "malay" keys respectively)
+     - \"text\": Contains question descriptions and instructions (in english and malay, segregated by \"english\" and \"malay\" keys respectively)
      - \"diagram\": Represents figures, charts, or illustrations.
      - \"table\": Represents tabular data extracted from the document.
-     - \"row\": A multi-column layout for side-by-side diagrams or elements.
-     - \"question\": Marks a question reference. (Only for content_flow array under main_question, *will be multiple according to PDF*)
-     - \"sub_question\": Marks a sub_question reference. (Only for content_flow array under question, *will be multiple according to PDF*)
-     - "answer_space": Represents the space given for writing down answers.
+     - \"row\": A multi-column layout for side-by-side diagrams or elements on the same row.
+     - \"answer_space\": Represents the space given for writing down answers.
 - Ensure the structure remains hierarchical:
      - Main questions (main_questions) should be nested under the top-level JSON object.
      - Questions (questions) array should be nested under their respective main_questions.
@@ -70,7 +69,6 @@ def get_ai_response(file, start, end):
                 },
                 {
                     \"type\": \"row\",
-                    \"columns\": <Number of Columns>,
                     \"items\": [
                         {
                             \"type\": \"diagram\",
@@ -89,9 +87,6 @@ def get_ai_response(file, start, end):
                     \"number\": \"<Table Number>\",
                     \"page\": \"<Page Number>\"
                 },
-                {
-                    \"type\": \"questions\"
-                }
             ],
             \"questions\": [
                 {
@@ -116,9 +111,6 @@ def get_ai_response(file, start, end):
                                 }
                             ]
                         },
-                        {
-                            \"type\": \"sub_questions\"
-                        }
                     ],
                     \"sub_questions\": [
                         {
@@ -147,17 +139,99 @@ def get_ai_response(file, start, end):
 }
 ```
 
+ **Question schema**
+    - Numbered \"1(a)\", \"2(b)\", \"3(c)\", etc.
+    - Example JSON object inside a main_question's \"questions\" array:
+```json
+\"main_questions\": [
+    {
+        \"number\": \"1\",
+        \"content_flow\": [
+        ],
+        \"questions\": [
+            {
+                \"number\": \"1(a)\",
+                \"marks\": \"1\",
+                \"content_flow\": [
+                    {
+                        \"type\": \"text\",
+                        \"text\": {
+                            \"malay\": \"Nyatakan Prinsip Keabadian Momentum?\",
+                            \"english\": \"State the Principle of Conservation of Momentum?\"
+                        }
+                    }
+                ]
+            },
+            {
+                \"number\": \"1(b)\",
+                \"marks\": \"1\",
+                \"content_flow\": [
+                    {
+                        \"type\": \"text\",
+                        \"text\": {
+                            \"malay\": \"Nyatakan jenis perlanggaran yang terlibat dalam Rajah 1.\",
+                            \"english\": \"State the type of collision involved in Diagram 1.\"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+]
+```
+
+**Sub-Question schema**
+    - Numbered \"1(a)(i)\", \"2(b)(ii)\", \"3(c)(iii)\", etc.
+    - Example JSON object inside a question's \"content_flow\" array:
+```json
+\"questions\": [
+    {
+      \"number\": \"1(a)\",
+      \"content_flow\": [
+        ],
+        \"sub_questions\": [
+            {
+                \"number\": \"1(a)(i)\",
+                \"marks\": \"1\",
+                \"content_flow\": [
+                    {
+                        \"type\": \"text\",
+                        \"text\": {
+                            \"malay\": \"Lakarkan pesongan alur elektron dalam Rajah 1, jika nilai voltan lampau tinggi ( V.L.T ) ditingkatkan kepada 5000 V?\",
+                            \"english\": \"Sketch the electron flow deflection in Diagram 1, if the value of the extra high tension ( EHT ) is increased to 5000 V?\"
+                        }
+                    }
+                ]
+            },
+            {
+                \"number\": \"1(a)(ii)\",
+                \"marks\": \"1\",
+                \"content_flow\": [
+                    {
+                        \"type\": \"text\",
+                        \"text\": {
+                            \"malay\": \"Beri satu sebab bagi jawapan anda di 1(c)(i).\",
+                            \"english\": \"Give one reason for your answer in 1(c)(i).\"
+                        }
+                    }
+                ]
+            },
+        ]
+    }
+]
+```
+
 **CONTENT FLOW ELEMENTS**
 - **Text**
     - Extract text and segregate into malay and english keys.
-    - If there is a new line but within the same language, add a \\\\n
+    - If there is a new line but within the same language, add a \\\\\\\\n
     - Example JSON object:
 ```json
 {
  	\"type\": \"text\",
     \"text\": {
-        \"malay\": \"Apakah kesan negatif penggunaan tenaga hidroelektrik?\\nBerikan sebab\",
-        \"english\": \"What are the negative impacts of using hydroelectric energy?\\nGive reasons.\"
+        \"malay\": \"Apakah kesan negatif penggunaan tenaga hidroelektrik?\\\\nBerikan sebab\",
+        \"english\": \"What are the negative impacts of using hydroelectric energy?\\\\nGive reasons.\"
     }
 }
 ```
@@ -198,7 +272,6 @@ def get_ai_response(file, start, end):
 ```json
 {
     \"type\": \"row\",
-    \"columns\": 2,
     \"items\": [
         {
             \"type\": \"diagram\",
@@ -218,7 +291,6 @@ def get_ai_response(file, start, end):
 ```json
 {
     \"type\": \"row\",
-    \"columns\": 4,
     \"items\": [
         {
             \"type\": \"text\",
@@ -248,96 +320,6 @@ def get_ai_response(file, start, end):
 }
 ```
 
-- **Question**
-    - Marks a question reference inside a main_question's \"content_flow\" array.
-    - Numbered \"1(a)\", \"2(b)\", \"3(c)\", etc.
-    - Example JSON object inside a main_question's \"content_flow\" and \"questions\" array:
-```json
-\"main_questions\": [
-    {
-        \"number\": \"1\",
-        \"content_flow\": [
-            {
-                \"type\": \"questions\"
-            }
-        ],
-        \"questions\": [
-            {
-                \"number\": \"1(a)\",
-                \"marks\": \"1\",
-                \"content_flow\": [
-                    {
-                        \"type\": \"text\",
-                        \"text\": {
-                            \"malay\": \"Nyatakan Prinsip Keabadian Momentum?\",
-                            \"english\": \"State the Principle of Conservation of Momentum?\"
-                        }
-                    }
-                ]
-            },
-            {
-                \"number\": \"1(b)\",
-                \"marks\": \"1\",
-                \"content_flow\": [
-                    {
-                        \"type\": \"text\",
-                        \"text\": {
-                            \"malay\": \"Nyatakan jenis perlanggaran yang terlibat dalam Rajah 1.\",
-                            \"english\": \"State the type of collision involved in Diagram 1.\"
-                        }
-                    }
-                ]
-            }
-        ]
-    }
-]
-```
-
-- **Sub-Question**
-    - Marks a sub_question reference inside a question's \"content_flow\" array.
-    - Numbered \"1(a)(i)\", \"2(b)(ii)\", \"3(c)(iii)\", etc.
-    - Example JSON object inside a question's \"content_flow\" and \"sub_questions\" array:
-```json
-\"questions\": [
-    {
-      \"number\": \"1(a)\",
-      \"content_flow\": [
-            {
-                \"type\": \"sub_questions\"
-            }
-        ],
-        \"sub_questions\": [
-            {
-                \"number\": \"1(a)(i)\",
-                \"marks\": \"1\",
-                \"content_flow\": [
-                    {
-                        \"type\": \"text\",
-                        \"text\": {
-                            \"malay\": \"Lakarkan pesongan alur elektron dalam Rajah 1, jika nilai voltan lampau tinggi ( V.L.T ) ditingkatkan kepada 5000 V?\",
-                            \"english\": \"Sketch the electron flow deflection in Diagram 1, if the value of the extra high tension ( EHT ) is increased to 5000 V?\"
-                        }
-                    }
-                ]
-            },
-            {
-                \"number\": \"1(a)(ii)\",
-                \"marks\": \"1\",
-                \"content_flow\": [
-                    {
-                        \"type\": \"text\",
-                        \"text\": {
-                            \"malay\": \"Beri satu sebab bagi jawapan anda di 1(c)(i).\",
-                            \"english\": \"Give one reason for your answer in 1(c)(i).\"
-                        }
-                    }
-                ]
-            },
-        ]
-    }
-]
-```
-
 - **Answer Space**
     - Represents the space given for writing down answers.
     - Extract the format, number of lines, and options if applicable.
@@ -345,7 +327,7 @@ def get_ai_response(file, start, end):
     - There are three formats: line, multiple-choice, and blank-space.
     a. Line
         - Illustrates the number of dotted-horizontal lines given for writing the answer.
-        - Add a "line" key to the answer_space type element for line formats to represent the number of lines.
+        - Add a \"line\" key to the answer_space type element for line formats to represent the number of lines.
         - Example JSON object:
      ```json
     {
@@ -393,17 +375,18 @@ def get_ai_response(file, start, end):
         types.Content(
             role="model",
             parts=[
-                types.Part.from_text(text="""Okay, I understand the rules and schema for extracting content from exam question papers in PDF format. I am ready to process the provided PDF content and generate a JSON output that adheres to the specified structure and guidelines. I will pay close attention to:
+                types.Part.from_text(text="""Okay, I understand the rules and schema. I am ready to process the exam question papers and extract the content into the specified JSON format. I will pay close attention to:
 
--   Maintaining the hierarchical structure of main questions, questions, and sub-questions.
--   Accurately extracting and segregating text into Malay and English.
--   Identifying and representing diagrams, tables, and rows with their corresponding numbers and page numbers.
--   Correctly identifying and representing different answer space formats (line, multiple-choice, and blank-space) with the appropriate attributes.
--   Maintaining the order of elements as they appear in the PDF.
--   Including question marks where applicable.
--   Omitting answer spaces for Main Questions 9 to 11.
+*   Maintaining the correct hierarchical structure (main\\_questions > questions > sub\\_questions).
+*   Accurately identifying and categorizing content flow elements (text, diagram, table, row, answer\\_space).
+*   Segregating text into Malay and English where applicable.
+*   Extracting diagram and table numbers along with their page numbers.
+*   Handling different answer space formats (line, multiple-choice, blank-space) correctly.
+*   Including marks for questions and sub-questions.
+*   Omitting answer spaces for Main Questions 9 to 11 and their nested questions and sub-questions.
+*   Avoiding null values.
 
-I will await the PDF content to begin the extraction process.
+I am waiting for you to provide the exam question paper content.
 """),
             ],
         ),

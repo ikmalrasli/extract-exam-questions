@@ -14,9 +14,6 @@
           "type": "diagram",
           "number": "1",
           "page": 4
-        },
-        {
-          "type": "questions"
         }
       ],
       "questions": [
@@ -81,9 +78,6 @@
                 "malay": "Menurut Teori Fizik Kuantum, tenaga cahaya wujud dalam bentuk foton.",
                 "english": "Based on Quantum Physics Theory, light energy exists in the form of photon."
               }
-            },
-            {
-              "type": "sub_questions"
             }
           ],
           "sub_questions": [
@@ -141,9 +135,6 @@
           "type": "diagram",
           "number": "2.1",
           "page": 6
-        },
-        {
-          "type": "questions"
         }
       ],
       "questions": [
@@ -186,9 +177,6 @@
                 "malay": "Pada Rajah 2.2,",
                 "english": "On Diagram 2.2,"
               }
-            },
-            {
-              "type": "sub_questions"
             }
           ],
           "sub_questions": [
@@ -265,9 +253,6 @@
           "type": "diagram",
           "number": "3.2",
           "page": 8
-        },
-        {
-          "type": "questions"
         }
       ],
       "questions": [
@@ -298,9 +283,6 @@
                 "malay": "Berdasarkan Rajah 3.2,",
                 "english": "Based on Diagram 3.2,"
               }
-            },
-            {
-              "type": "sub_questions"
             }
           ],
           "sub_questions": [
@@ -356,9 +338,6 @@
           "type": "diagram",
           "number": "4.1",
           "page": 10
-        },
-        {
-          "type": "questions"
         }
       ],
       "questions": [
@@ -411,9 +390,6 @@
                 "malay": "Rajah 4.2 menunjukkan sebuah roket berada di tapak pelancaran.",
                 "english": "Diagram 4.2 shows a rocket at a launch site."
               }
-            },
-            {
-              "type": "sub_questions"
             }
           ],
           "sub_questions": [
@@ -493,9 +469,6 @@
           "type": "diagram",
           "number": "5.2",
           "page": 14
-        },
-        {
-          "type": "questions"
         }
       ],
       "questions": [
@@ -526,9 +499,6 @@
                 "malay": "Perhatikan Rajah 5.1 dan Rajah 5.2. Bandingkan",
                 "english": "Observe Diagram 5.1 and Diagram 5.2. Compare"
               }
-            },
-            {
-              "type": "sub_questions"
             }
           ],
           "sub_questions": [
@@ -671,9 +641,6 @@
                 "malay": "Pada Rajah 5.3, tandakan",
                 "english": "On Diagram 5.3, mark"
               }
-            },
-            {
-              "type": "sub_questions"
             }
           ],
           "sub_questions": [
@@ -717,7 +684,6 @@
         },
         {
           "type": "row",
-          "columns": 2,
           "items": [
             {
               "type": "diagram",
@@ -730,9 +696,6 @@
               "page": 17
             }
           ]
-        },
-        {
-          "type": "questions"
         }
       ],
       "questions": [
@@ -762,9 +725,6 @@
                 "malay": "Berdasarkan Rajah 6.1(a) dan Rajah 6.1(b), bandingkan",
                 "english": "Based on Diagram 6.1(a) and Diagram 6.1(b), compare"
               }
-            },
-            {
-              "type": "sub_questions"
             }
           ],
           "sub_questions": [
@@ -877,9 +837,6 @@
                 "malay": "Berdasarkan pita detik tersebut, hitungkan",
                 "english": "Based on the ticker tape, calculate"
               }
-            },
-            {
-              "type": "sub_questions"
             }
           ],
           "sub_questions": [
@@ -935,9 +892,6 @@
           "type": "diagram",
           "number": "7.1",
           "page": 20
-        },
-        {
-          "type": "questions"
         }
       ],
       "questions": [
@@ -1016,9 +970,6 @@
                 "malay": "Berdasarkan Jadual 1, nyatakan ciri-ciri yang sesuai bagi suatu filamen pemanas.",
                 "english": "Based on Table 1, state the suitable characteristics of a heating filament."
               }
-            },
-            {
-              "type": "sub_questions"
             }
           ],
           "sub_questions": [
@@ -1113,9 +1064,6 @@
           "type": "diagram",
           "number": "8.1",
           "page": 24
-        },
-        {
-          "type": "questions"
         }
       ],
       "questions": [
@@ -1175,9 +1123,6 @@
                 "malay": "Nyatakan ciri-ciri dawai yang digunakan dalam sistem pendawaian lampu supaya dapat mengurangkan penggunaan tenaga elektrik dan berfungsi dengan berkesan.",
                 "english": "State the characteristics of the wire used in the lamp wiring system to reduce the electrical energy consumption and can function effectively."
               }
-            },
-            {
-              "type": "sub_questions"
             }
           ],
           "sub_questions": [
@@ -1283,9 +1228,6 @@
           "type": "diagram",
           "number": "9.1",
           "page": 27
-        },
-        {
-          "type": "questions"
         }
       ],
       "questions": [
@@ -1368,9 +1310,6 @@
                 "malay": "Hitung",
                 "english": "Calculate"
               }
-            },
-            {
-              "type": "sub_questions"
             }
           ],
           "sub_questions": [
@@ -1418,9 +1357,6 @@
           "type": "diagram",
           "number": "10.1",
           "page": 30
-        },
-        {
-          "type": "questions"
         }
       ],
       "questions": [
@@ -1446,9 +1382,6 @@
                 "malay": "Berdasarkan Rajah 10.1,",
                 "english": "Based on Diagram 10.1,"
               }
-            },
-            {
-              "type": "sub_questions"
             }
           ],
           "sub_questions": [
@@ -1513,9 +1446,6 @@
                 "malay": "Kaji dan tentukan sistem pemancaran yang paling sesuai untuk meningkatkan kualiti penghantaran isyarat.",
                 "english": "Study and determine the most suitable transmitting systems to improve the quality of transmission of signal."
               }
-            },
-            {
-              "type": "sub_questions"
             }
           ],
           "sub_questions": [
@@ -1563,9 +1493,6 @@
                 "malay": "Laju gelombang ultrasonik 1500 m s⁻¹ ditujukan ke arah ikan, hitungkan",
                 "english": "Ultrasonic wave of speed 1500 m s⁻¹ is directed towards the fish, calculate"
               }
-            },
-            {
-              "type": "sub_questions"
             }
           ],
           "sub_questions": [
@@ -1613,9 +1540,6 @@
           "type": "diagram",
           "number": "11.1",
           "page": 33
-        },
-        {
-          "type": "questions"
         }
       ],
       "questions": [
@@ -1645,7 +1569,6 @@
             },
             {
               "type": "row",
-              "columns": 2,
               "items": [
                 {
                   "type": "diagram",
