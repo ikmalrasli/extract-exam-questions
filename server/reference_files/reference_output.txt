@@ -631,13 +631,6 @@
             {
               "type": "text",
               "text": {
-                "malay": "Rajah 5.3 menunjukkan struktur ringkas sebuah motor arus terus.",
-                "english": "Diagram 5.3 shows a simple structure of a direct current motor."
-              }
-            },
-            {
-              "type": "text",
-              "text": {
                 "malay": "Pada Rajah 5.3, tandakan",
                 "english": "On Diagram 5.3, mark"
               }
