@@ -1,19 +1,34 @@
-1. Research PDF to Image
- - Upload pdf, and then converted to Image, baru analyse
-2. Ensure extracted texts are accurate
-3. Response format
+A web-based tool to streamline teachers' workflow by extracting questions, diagrams, and tables from exam PDFs into editable DOCX files.
 
+Inspiration
+This project was inspired by the tedious process teachers (like my mother, a physics teacher) face when creating exam papers. Typically, they:
 
-4. Store data (JSON first, Firebase, Supabase, local??)
-5. Frontend (upload, editable, save, output csv??)
+Refer to past or external exam papers (often in PDF format).
 
-create this table
+Manually copy-paste or retype questions, diagrams, and tables into a Word document—a time-consuming and error-prone task.
 
-create table documents (
-  id uuid primary key default gen_random_uuid(),
-  file_name text not null,
-  file_url text not null,
-  uploaded_date timestamp default now(),
-  data JSONB,
-  status text check (status IN ('in process', 'extracted', 'edited', 'failed')) default 'in process'
-);
+The Problem
+Many exam papers are in rasterized or text-based PDFs, making extraction difficult.
+
+Copying content preserving formatting (text, diagrams, tables) is a hassle.
+
+Adjusting margins and layouts in Word adds unnecessary effort.
+
+The Solution
+This tool automates the extraction process:
+✅ Upload an exam PDF (scanned or digital).
+✅ Extract questions, diagrams, and tables with structured formatting.
+✅ Download a ready-to-use DOCX file, formatted like a standard exam paper.
+
+Impact: Saves hours of manual work, letting teachers focus on teaching—not document formatting!
+
+Key Features
+Supports rasterized and text-based PDFs.
+
+Preserves tables, diagrams, and text layout.
+
+Generates clean, standardized DOCX output.
+
+Web-based—no installation needed.
+
+Built for educators, by someone who understands the struggle. 🚀
