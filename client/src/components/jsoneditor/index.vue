@@ -4,7 +4,7 @@ import MainQuestionContentFlow from './MainQuestionContentFlow.vue';
 import MarksDisplay from './MarksDisplay.vue';
 
 const props = defineProps({
-  sections: {
+  data: {
     type: Array,
     required: false
   }
@@ -12,10 +12,8 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="p-4 text-black">
-    <div v-for="section in sections">
-      <div class="space-y-8">
-        <template v-for="mainQuestion in section.main_questions" :key="mainQuestion.number">
+  <div class="p-4 text-black space-y-4">
+        <template v-for="mainQuestion in props.data['main_questions']" :key="mainQuestion.number">
           <div class="border p-4 rounded-md bg-white shadow-md text-left">
             <table class="w-full border-collapse border mt-2 bg-gray-50" style="table-layout: auto;">
               <tbody>
@@ -80,8 +78,7 @@ const props = defineProps({
           </div>
         </template>
       </div>
-    </div>
-  </div>
+    
 </template>
 
 <style scoped>
