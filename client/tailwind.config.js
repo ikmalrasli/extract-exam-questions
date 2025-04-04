@@ -8,5 +8,8 @@ export default {
     extend: {},
   },
   plugins: [],
+  safelist: [
+    { pattern: /^grid-cols-(2|3|4)$/ },
+  ]
 }
 

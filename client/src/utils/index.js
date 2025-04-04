@@ -13,9 +13,9 @@ export const formatFileSize = (size) => {
 
 export const truncateString = (str, frontChars, backChars, ellipsis = '...') => {
   if (str.length <= frontChars + backChars) {
-      return str;
+    return str;
   }
-  
+
   const frontStr = str.substring(0, frontChars);
   const backStr = str.substring(str.length - backChars);
   return frontStr + ellipsis + backStr;
@@ -23,14 +23,17 @@ export const truncateString = (str, frontChars, backChars, ellipsis = '...') => 
 
 export const formatDate = (dateString) => {
   const date = new Date(dateString);
+  const utcOffset = 8 * 60; // UTC+8 in minutes
+  const localDate = new Date(date.getTime() + utcOffset * 60 * 1000); // Adjust for UTC+8
+
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  
-  const month = months[date.getMonth()];
-  const day = date.getDate();
-  const year = date.getFullYear();
-  
-  const hours = date.getHours().toString().padStart(2, '0');
-  const minutes = date.getMinutes().toString().padStart(2, '0');
+
+  const month = months[localDate.getMonth()];
+  const day = localDate.getDate();
+  const year = localDate.getFullYear();
+
+  const hours = localDate.getHours().toString().padStart(2, '0');
+  const minutes = localDate.getMinutes().toString().padStart(2, '0');
 
   return `${month} ${day}, ${year} ${hours}:${minutes}`;
 };

@@ -1,6 +1,7 @@
 <script setup>
 import DiagramContent from './DiagramContent.vue';
 import TextContent from './TextContent.vue';
+import RowContent from './RowContent.vue';
 
 defineProps({
   number: {
@@ -28,18 +29,14 @@ defineProps({
   </tr>
   <tr v-if="content.type === 'diagram'">
     <td></td>
-    <td colspan="3" style="text-align: center">
-      <DiagramContent />
+    <td colspan="3">
+      <DiagramContent :content="content" />
     </td>
   </tr>
-  <tr v-if="content.type === 'answer_space'">
-    <td colspan="3" class="answer-space">
-      <span v-if="content.format === 'checkbox'">
-        <div class="checkbox"></div>
-      </span>
-      <span v-else>
-        ...........................................................................................................
-      </span>
+  <tr v-if="content.type === 'row'">
+    <td></td>
+    <td colspan="3">
+      <RowContent :content="content.items" />
     </td>
   </tr>
 </template>

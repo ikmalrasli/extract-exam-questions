@@ -3,8 +3,8 @@ import ContentFlow from './ContentFlow.vue';
 import MainQuestionContentFlow from './MainQuestionContentFlow.vue';
 import MarksDisplay from './MarksDisplay.vue';
 
-defineProps({
-  sections: {
+const props = defineProps({
+  data: {
     type: Array,
     required: false
   }
@@ -12,49 +12,32 @@ defineProps({
 </script>
 
 <template>
-  <div class="p-6 space-y-4 text-black">
-    <div v-for="section in sections">
-      <div class="space-y-8 mt-4">
-        <template v-for="mainQuestion in section.main_questions" :key="mainQuestion.number">
+  <div class="p-4 text-black space-y-4">
+        <template v-for="mainQuestion in props.data['main_questions']" :key="mainQuestion.number">
           <div class="border p-4 rounded-md bg-white shadow-md text-left">
-            <table class="w-full border-collapse border mt-2 bg-gray-50">
+            <table class="w-full border-collapse border mt-2 bg-gray-50" style="table-layout: auto;">
               <tbody>
 
                 <!-- main questions -->
-                <template
-                  v-for="(content, index) in mainQuestion.content_flow"
-                  :key="content.number"
-                >
+                <template v-for="(content, index) in mainQuestion.content_flow" :key="content.number">
                   <MainQuestionContentFlow :content="content" :index="index" :number="mainQuestion.number" />
-                  <tr v-if="mainQuestion.marks">
-                    <td
-                      colspan="4"
-                      style="text-align: right; font-weight: bold"
-                    >
-                      <MarksDisplay :marks="mainQuestion.marks" />
-                    </td>
-                  </tr>
                 </template>
 
                 <!-- questions -->
-                <template
-                  v-for="question in mainQuestion.questions"
-                  :key="question.number"
-                >
-                  <tr class="border bg-gray-100">
-                    <td></td>
-                    <td v-if="question.number" class="border p-2">
-                      {{ question.number.replace(/^\d+/, "") }}
-                    </td>
-                    <td class="border p-2 space-y-6" colspan="2">
-                      <template
-                        v-for="content in question.content_flow"
-                        :key="content.number"
-                      >
+                <template v-for="question in mainQuestion.questions" :key="question.number">
+                  <template v-for="(content, index) in question.content_flow" :key="content.number">
+                    <tr v-if="content.type != 'sub_questions'" class="border bg-gray-100">
+                      <td class="w-auto"></td>
+                      <td v-if="question.number && index === 0" class="border p-2 w-auto">
+                        {{ question.number.replace(/^\d+/, "") }}
+                      </td>
+                      <td v-else class="border p-2 w-auto"></td>
+                      <td class="border p-2 space-y-6 w-full" colspan="2">
                         <ContentFlow :content="content" />
-                      </template>
-                    </td>
-                  </tr>
+                      </td>
+                    </tr>
+                  </template>
+
                   <tr v-if="question.marks" class="border bg-gray-100">
                     <td></td>
                     <td></td>
@@ -64,25 +47,21 @@ defineProps({
                   </tr>
 
                   <!-- sub questions -->
-                  <template
-                    v-for="subQuestion in question.sub_questions"
-                    :key="subQuestion.number"
-                  >
-                    <tr class="border">
-                      <td></td>
-                      <td></td>
-                      <td v-if="subQuestion.number" class="border p-2 pl-8">
-                        {{ subQuestion.number.match(/\([^)]*\)$/)?.[0] }}
-                      </td>
-                      <td class="border p-2 space-y-6">
-                        <template
-                          v-for="content in subQuestion.content_flow"
-                          :key="content.number"
-                        >
+                  <template v-for="subQuestion in question.sub_questions" :key="subQuestion.number">
+                    <template v-for="(content, index) in subQuestion.content_flow" :key="content.number">
+                      <tr class="border">
+                        <td class="w-auto"></td>
+                        <td class="w-auto"></td>
+                        <td v-if="question.number && index === 0" class="p-2 w-auto">
+                          {{ subQuestion.number.match(/\([^)]*\)$/)?.[0] }}
+                        </td>
+                        <td v-else></td>
+                        <td class="p-2 space-y-6 w-full">
                           <ContentFlow :content="content" />
-                        </template>
-                      </td>
-                    </tr>
+                        </td>
+                      </tr>
+                    </template>
+
                     <tr v-if="subQuestion.marks" class="border bg-gray-100" align="right">
                       <td></td>
                       <td></td>
@@ -99,8 +78,7 @@ defineProps({
           </div>
         </template>
       </div>
-    </div>
-  </div>
+    
 </template>
 
 <style scoped>

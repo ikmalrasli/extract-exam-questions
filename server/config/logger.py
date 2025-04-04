@@ -29,7 +29,7 @@ def log_json(json_data):
 
 def log_error(error_message: str, response_text: str = None) -> None:
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    error_log_name = f'error_logs/error_log_{timestamp}.txt'
+    error_log_name = f'error_logs/error_log_{timestamp}.log'
     
     with open(error_log_name, "w", encoding='utf-8') as f:
         f.write(f"Error: {error_message}\n\n")

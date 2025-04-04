@@ -3,3 +3,4 @@ __pycache__
 my_env
 error_logs
 outputs/temporary_output_data.json
+test
