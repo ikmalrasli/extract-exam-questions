@@ -9,8 +9,8 @@ def get_ai_response(file, start, end):
   model = "gemini-2.0-flash"
   
   base_dir = os.path.dirname(os.path.abspath(__file__))  # Get the directory of the current file
-  reference_input_file_path = os.path.join(base_dir, "..", "reference_files", "reference_input.pdf")
-  reference_output_file_path = os.path.join(base_dir, "..", "reference_files", "reference_output.txt")
+  reference_input_file_path = os.path.join(base_dir, "..", "assets", "reference_input.pdf")
+  reference_output_file_path = os.path.join(base_dir, "..", "assets", "reference_output.txt")
   files = [
     # Make the reference input file available in local system working directory
     client.files.upload(file=reference_input_file_path),

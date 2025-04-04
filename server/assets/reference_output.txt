@@ -1,0 +1,1663 @@
+{
+  "main_questions": [
+    {
+      "number": "1",
+      "content_flow": [
+        {
+          "type": "text",
+          "text": {
+            "malay": "Rajah 1 menunjukkan satu spektrum gelombang elektromagnet.",
+            "english": "Diagram 1 shows an electromagnetic wave spectrum."
+          }
+        },
+        {
+          "type": "diagram",
+          "number": "1",
+          "page": 4
+        }
+      ],
+      "questions": [
+        {
+          "number": "1(a)",
+          "marks": 1,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Tandakan (V) untuk jawapan yang betul dalam kotak yang disediakan.",
+                "english": "Tick (V) for the correct answer in the box provided."
+              }
+            },
+            {
+              "type": "text",
+              "text": {
+                "malay": "Jenis specktrum yang ditunjukkan dalam Rajah 1 adalah",
+                "english": "The type of spectrum shown in Diagram 1 is"
+              }
+            },
+            {
+              "type": "answer_space",
+              "format": "multiple-choice",
+              "options": [
+                {
+                  "malay": "spektrum garis",
+                  "english": "line spectrum"
+                },
+                {
+                  "malay": "spektrum selanjar",
+                  "english": "continuous spectrum"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "number": "1(b)",
+          "marks": 1,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Nyatakan bagaimana spektrum dalam 1(a) terhasil.",
+                "english": "State how the spectrum in 1(a) is produced."
+              }
+            },
+            {
+              "type": "answer_space",
+              "format": "line",
+              "lines": 2
+            }
+          ]
+        },
+        {
+          "number": "1(c)",
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Menurut Teori Fizik Kuantum, tenaga cahaya wujud dalam bentuk foton.",
+                "english": "Based on Quantum Physics Theory, light energy exists in the form of photon."
+              }
+            }
+          ],
+          "sub_questions": [
+            {
+              "number": "1(c)(i)",
+              "marks": 1,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "Apakah yang dimaksudkan dengan foton?",
+                    "english": "What is the meaning of photon?"
+                  }
+                },
+                {
+                  "type": "answer_space",
+                  "format": "line",
+                  "lines": 2
+                }
+              ]
+            },
+            {
+              "number": "1(c)(ii)",
+              "marks": 1,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "Apakah yang berlaku kepada tenaga foton sekiranya frekuensi gelombang cahaya berkurang?",
+                    "english": "What happens to the photon energy if the frequency of the light wave decreased?"
+                  }
+                },
+                {
+                  "type": "answer_space",
+                  "format": "line",
+                  "lines": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": "2",
+      "content_flow": [
+        {
+          "type": "text",
+          "text": {
+            "malay": "Rajah 2.1 menunjukkan pembiasan gelombang air apabila mendekati pantai.",
+            "english": "Diagram 2.1 shows the refraction of water waves when approaching the beach."
+          }
+        },
+        {
+          "type": "diagram",
+          "number": "2.1",
+          "page": 6
+        }
+      ],
+      "questions": [
+        {
+          "number": "2(a)",
+          "marks": 1,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Apakah maksud pembiasan gelombang?",
+                "english": "What is the meaning of refraction of waves?"
+              }
+            },
+            {
+              "type": "answer_space",
+              "format": "line",
+              "lines": 2
+            }
+          ]
+        },
+        {
+          "number": "2(b)",
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Rajah 2.2 menunjukkan pembiasan gelombang air dari kawan laut dalam.",
+                "english": "Diagram 2.2 shows the propagation of water waves from the deep sea region."
+              }
+            },
+            {
+              "type": "diagram",
+              "number": "2.2",
+              "page": 6
+            },
+            {
+              "type": "text",
+              "text": {
+                "malay": "Pada Rajah 2.2,",
+                "english": "On Diagram 2.2,"
+              }
+            }
+          ],
+          "sub_questions": [
+            {
+              "number": "2(b)(i)",
+              "marks": 1,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "lengkapkan arah perambatan gelombang air di laut cetek.",
+                    "english": "complete the direction of propagation of water wave in the shallow sea."
+                  }
+                }
+              ]
+            },
+            {
+              "number": "2(b)(ii)",
+              "marks": 1,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "lukiskan muka gelombang air bagi gelombang air di laut cetek.",
+                    "english": "draw the wavefronts of the water waves in the shallow sea."
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "number": "2(c)",
+          "marks": 2,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Laju gelombang air di laut cetek dan laut dalam masing-masing ialah 4.0 m s⁻¹ dan 9.0 m s⁻¹. Panjang gelombang di laut dalam adalah 5.0 m.\\n Hitung panjang gelombang di laut cetek.",
+                "english": "The speed of water waves in shallow sea and deep sea are 4.0 m s⁻¹ and 9.0 m s⁻¹ respectively. The wavelength in the deep sea is 5.0 m.\\n Calculate the wavelength in the shallow sea."
+              }
+            },
+            {
+              "type": "answer_space",
+              "format": "blank-space"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": "3",
+      "content_flow": [
+        {
+          "type": "text",
+          "text": {
+            "malay": "Rajah 3.1 menunjukkan 0.6 kg ais sedang dipanaskan oleh sebuah pemanas rendam 1000 W. Haba pendam tentu pelakuran bagi ais ialah 334000 J kg⁻¹.",
+            "english": "Diagram 3.1 shows 0.6 kg of ice is heated using a 1000 W immersion heater. Specific latent heat of fusion of ice is 334000 J kg⁻¹."
+          }
+        },
+        {
+          "type": "diagram",
+          "number": "3.1",
+          "page": 8
+        },
+        {
+          "type": "text",
+          "text": {
+            "malay": "Rajah 3.2 menunjukkan graf jisim ais, m, berubah dengan masa, t ketika pemanasan.",
+            "english": "Diagram 3.2 shows the graph of mass of ice, m, change with time, t during heating."
+          }
+        },
+        {
+          "type": "diagram",
+          "number": "3.2",
+          "page": 8
+        }
+      ],
+      "questions": [
+        {
+          "number": "3(a)",
+          "marks": 1,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Apakah yang dimaksudkan dengan haba pendam tentu pelakuran?",
+                "english": "What is the meaning of specific latent heat of fusion?"
+              }
+            },
+            {
+              "type": "answer_space",
+              "format": "line",
+              "lines": 1
+            }
+          ]
+        },
+        {
+          "number": "3(b)",
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Berdasarkan Rajah 3.2,",
+                "english": "Based on Diagram 3.2,"
+              }
+            }
+          ],
+          "sub_questions": [
+            {
+              "number": "3(b)(i)",
+              "marks": 2,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "hitungkan kualiti haba yang diserap oleh ais ketika peleburan.\\nAndaikan tiada haba terbebas ke persekitaran.",
+                    "english": "calculate the quantity of heat absorbed by the ice during melting.\\nAssume no heat released to the surrounding."
+                  }
+                },
+                {
+                  "type": "answer_space",
+                  "format": "blank-space"
+                }
+              ]
+            },
+            {
+              "number": "3(b)(ii)",
+              "marks": 3,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "tentukan nilai X.",
+                    "english": "determine the value of X."
+                  }
+                },
+                {
+                  "type": "answer_space",
+                  "format": "blank-space"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": "4",
+      "content_flow": [
+        {
+          "type": "text",
+          "text": {
+            "malay": "Rajah 4.1 menunjukkan kedudukan Matahari, Bumi dan Bulan.",
+            "english": "Diagram 4.1 shows the position of the Sun, Earth and Moon."
+          }
+        },
+        {
+          "type": "diagram",
+          "number": "4.1",
+          "page": 10
+        }
+      ],
+      "questions": [
+        {
+          "number": "4(a)",
+          "marks": 1,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Nyatakan Hukum Kegravitian Semesta Newton.",
+                "english": "State the Newton's Universal Law of Gravitation."
+              }
+            },
+            {
+              "type": "answer_space",
+              "format": "line",
+              "lines": 2
+            }
+          ]
+        },
+        {
+          "number": "4(b)",
+          "marks": 2,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Diberikan\\nG = 6.67 x 10⁻¹¹ N m² kg⁻²\\nJisim Matahari = 1.99 x 10³⁰ kg\\nJisim Bumi = 5.97 x 10²⁴ kg\\nJejari Bumi = 6.37 x 10⁶ m\\nJarak antara Matahari dan Bumi = 1.5 x 10¹¹ m",
+                "english": "Given\\nG = 6.67 x 10⁻¹¹ N m² kg⁻²\\nMass of the Sun = 1.99 x 10³⁰ kg\\nMass of the Earth = 5.97 x 10²⁴ kg\\nEarth radius = 6.37 x 10⁶ m\\nDistance between the Sun and the Earth = 1.5 x 10¹¹ m"
+              }
+            },
+            {
+              "type": "answer_space",
+              "format": "blank-space"
+            }
+          ]
+        },
+        {
+          "number": "4(c)",
+          "content_flow": [
+            {
+              "type": "diagram",
+              "number": "4.2",
+              "page": 12
+            },
+            {
+              "type": "text",
+              "text": {
+                "malay": "Rajah 4.2 menunjukkan sebuah roket berada di tapak pelancaran.",
+                "english": "Diagram 4.2 shows a rocket at a launch site."
+              }
+            }
+          ],
+          "sub_questions": [
+            {
+              "number": "4(c)(i)",
+              "marks": 3,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "Roket yang berada di tapak pelancaran mengalami daya graviti 5.0 x 10⁵ N.\\nHitungkan pecutan roket.",
+                    "english": "The rocket at the launch site experiences a gravitational force of 5.0 x 10⁵ N.\\nCalculate the acceleration of the rocket."
+                  }
+                },
+                {
+                  "type": "answer_space",
+                  "format": "blank-space"
+                }
+              ]
+            },
+            {
+              "number": "4(c)(ii)",
+              "marks": 1,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "Jika roket berada 100 km dari permukaan Bumi, apakah perubahan terhadap daya graviti yang bertindak atas roket tersebut?",
+                    "english": "If the rocket is 100 km from the Earth's surface, what is the change in the gravitational force acting on the rocket?"
+                  }
+                },
+                {
+                  "type": "answer_space",
+                  "format": "line",
+                  "lines": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "number": "4(d)",
+          "marks": 2,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Mengikut Hukum Kegravitian Semesta Newton, dua orang di permukaan Bumi akan mengalami daya graviti.\\nTerangkan mengapa kesan daya tersebut tidak dirasai?",
+                "english": "According to Newton's Universal Law of Gravitation, two persons on the surface of the Earth experience the gravitational force.\\nExplain why the effect of this force is not felt?"
+              }
+            },
+            {
+              "type": "answer_space",
+              "format": "line",
+              "lines": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": "5",
+      "content_flow": [
+        {
+          "type": "text",
+          "text": {
+            "malay": "Rajah 5.1 dan Rajah 5.2 menunjukkan susan radas suatu eksperimen untuk mengkaji hubungan antara arus dan daya yang bertindak pada suatu konduktor apabila suis ditutup.",
+            "english": "Diagram 5.1 and Diagram 5.2 shows the arrangement of the apparatus in an experiment to study the relationship between the current and the force acting on a conductor when the switch is closed."
+          }
+        },
+        {
+          "type": "diagram",
+          "number": "5.1",
+          "page": 14
+        },
+        {
+          "type": "diagram",
+          "number": "5.2",
+          "page": 14
+        }
+      ],
+      "questions": [
+        {
+          "number": "5(a)",
+          "marks": 1,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Namakan petua yang digunakan untuk menentukan arah daya yang bertindak pada konduktor.",
+                "english": "Name the rule used to determine the direction of the force acted on the conductor."
+              }
+            },
+            {
+              "type": "answer_space",
+              "format": "line",
+              "lines": 1
+            }
+          ]
+        },
+        {
+          "number": "5(b)",
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Perhatikan Rajah 5.1 dan Rajah 5.2. Bandingkan",
+                "english": "Observe Diagram 5.1 and Diagram 5.2. Compare"
+              }
+            }
+          ],
+          "sub_questions": [
+            {
+              "number": "5(b)(i)",
+              "marks": 1,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "bacaan ammeter",
+                    "english": "the ammeter reading"
+                  }
+                },
+                {
+                  "type": "answer_space",
+                  "format": "line",
+                  "lines": 1
+                }
+              ]
+            },
+            {
+              "number": "5(b)(ii)",
+              "marks": 1,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "jarak gerakan rod kuprum",
+                    "english": "the distance travelled by the copper rod"
+                  }
+                },
+                {
+                  "type": "answer_space",
+                  "format": "line",
+                  "lines": 1
+                }
+              ]
+            },
+            {
+              "number": "5(b)(iii)",
+              "marks": 1,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "kekuatan medan magnet bagi magnet kekal",
+                    "english": "the magnetic field strength of the permanent magnet"
+                  }
+                },
+                {
+                  "type": "answer_space",
+                  "format": "line",
+                  "lines": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "number": "5(c)",
+          "marks": 1,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Berdasarkan jawapan anda dalam 5(b), nyatakan hubungan antara magnitud arus dengan jarak gerakan rod kuprum.",
+                "english": "Based on your answer in 5(b), state the relationship between the magnitude of the current and the distance travelled by the copper rod."
+              }
+            },
+            {
+              "type": "answer_space",
+              "format": "line",
+              "lines": 2
+            }
+          ]
+        },
+        {
+          "number": "5(d)",
+          "marks": 1,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Seterusnya, deduksikan hubungan antara magnitud arus dengan daya magnet yang dihasilkan.",
+                "english": "Hence, deduce the relationship between the magnitude of the current and the magnetic force produced."
+              }
+            },
+            {
+              "type": "answer_space",
+              "format": "line",
+              "lines": 2
+            }
+          ]
+        },
+        {
+          "number": "5(e)",
+          "marks": 1,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Apakah yang akan berlaku kepada jarak gerakan rod kuprum jika magnet yang lebih kuat digunakan?",
+                "english": "What will happen to the distance travelled by the copper rod if a stronger magnet is used?"
+              }
+            },
+            {
+              "type": "answer_space",
+              "format": "line",
+              "lines": 1
+            }
+          ]
+        },
+        {
+          "number": "5(f)",
+          "marks": 2,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Rajah 5.3 menunjukkan struktur ringkas sebuah motor arus terus.",
+                "english": "Diagram 5.3 shows a simple structure of a direct current motor."
+              }
+            },
+            {
+              "type": "diagram",
+              "number": "5.3",
+              "page": 16
+            },
+            {
+              "type": "text",
+              "text": {
+                "malay": "Pada Rajah 5.3, tandakan",
+                "english": "On Diagram 5.3, mark"
+              }
+            }
+          ],
+          "sub_questions": [
+            {
+              "number": "5(f)(i)",
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "arah aliran arus pada gegulung dawai.",
+                    "english": "the direction of the current flow in the coiled wire."
+                  }
+                }
+              ]
+            },
+            {
+              "number": "5(f)(ii)",
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "arah gerakan gegulung dawai.",
+                    "english": "the direction of motion of the coiled wire."
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": "6",
+      "content_flow": [
+        {
+          "type": "text",
+          "text": {
+            "malay": "Rajah 6.1(a) dan Rajah 6.1(b) menunjukkan sebuah troli yang bergeral menuruni satah condong dengan ketinggian, h yang berbeza.",
+            "english": "Diagram 6.1(a) and Diagram 6.1(b) show a trolley moves down on inclined plane with different height, h."
+          }
+        },
+        {
+          "type": "row",
+          "items": [
+            {
+              "type": "diagram",
+              "number": "6.1(a)",
+              "page": 17
+            },
+            {
+              "type": "diagram",
+              "number": "6.1(b)",
+              "page": 17
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "number": "6(a)",
+          "marks": 1,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Apakah yang dimaksudkan dengan momentum?",
+                "english": "What is the meaning of momentum?"
+              }
+            },
+            {
+              "type": "answer_space",
+              "format": "line",
+              "lines": 1
+            }
+          ]
+        },
+        {
+          "number": "6(b)",
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Berdasarkan Rajah 6.1(a) dan Rajah 6.1(b), bandingkan",
+                "english": "Based on Diagram 6.1(a) and Diagram 6.1(b), compare"
+              }
+            }
+          ],
+          "sub_questions": [
+            {
+              "number": "6(b)(i)",
+              "marks": 1,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "ketinggian satah condong.",
+                    "english": "the height of the inclined plane."
+                  }
+                },
+                {
+                  "type": "answer_space",
+                  "format": "line",
+                  "lines": 1
+                }
+              ]
+            },
+            {
+              "number": "6(b)(ii)",
+              "marks": 1,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "halaju troli di P.",
+                    "english": "the velocity of the trolley at P."
+                  }
+                },
+                {
+                  "type": "answer_space",
+                  "format": "line",
+                  "lines": 1
+                }
+              ]
+            },
+            {
+              "number": "6(b)(iii)",
+              "marks": 1,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "momentum troli di P.",
+                    "english": "the momentum of the trolley at P."
+                  }
+                },
+                {
+                  "type": "answer_space",
+                  "format": "line",
+                  "lines": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "number": "6(c)",
+          "marks": 1,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Hubungkaitkan ketinggian satah condong dengan halaju troli di P.",
+                "english": "Relate the height of inclined plane and the velocity of the trolley at P."
+              }
+            },
+            {
+              "type": "answer_space",
+              "format": "line",
+              "lines": 1
+            }
+          ]
+        },
+        {
+          "number": "6(d)",
+          "marks": 1,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Nyatakan hubungan antara halaju troli dengan momentum.",
+                "english": "State the relationship between the velocity of the trolley and its momentum."
+              }
+            },
+            {
+              "type": "answer_space",
+              "format": "line",
+              "lines": 2
+            }
+          ]
+        },
+        {
+          "number": "6(e)",
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Rajah 6.2 menunjukkan keratan pita detik bagi gerakan sebuah troli dengan jisim 4 kg. Frekuensi jangka masa detik yang digunakan ialah 50 Hz.",
+                "english": "Diagram 6.2 shows a strip ofticker tape for a motion of a trolley with mass of 4 kg. The frequency of the ticker timer used is 50 Hz."
+              }
+            },
+            {
+              "type": "diagram",
+              "number": "6.2",
+              "page": 19
+            },
+            {
+              "type": "text",
+              "text": {
+                "malay": "Berdasarkan pita detik tersebut, hitungkan",
+                "english": "Based on the ticker tape, calculate"
+              }
+            }
+          ],
+          "sub_questions": [
+            {
+              "number": "6(e)(i)",
+              "marks": 2,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "halaju troli.",
+                    "english": "the velocity of the trolley."
+                  }
+                },
+                {
+                  "type": "answer_space",
+                  "format": "blank-space"
+                }
+              ]
+            },
+            {
+              "number": "6(e)(ii)",
+              "marks": 1,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "momentum troli.",
+                    "english": "momentum of the trolley."
+                  }
+                },
+                {
+                  "type": "answer_space",
+                  "format": "blank-space"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": "7",
+      "content_flow": [
+        {
+          "type": "text",
+          "text": {
+            "malay": "Rajah 7.1 menunjukkan alur elektron yang dipecutkan dari katod ke anod dalam ruang vakum. Beza keupayaan merentasi elektrod ialah 500 V.",
+            "english": "Diagram 7.1 shows the flow of electrons from the cathode to the anode in a vacuum. The potential difference across the electrodes is 500 V."
+          }
+        },
+        {
+          "type": "diagram",
+          "number": "7.1",
+          "page": 20
+        }
+      ],
+      "questions": [
+        {
+          "number": "7(a)",
+          "marks": 1,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Nyatakan jenis gerakan alur elektron yang bergerak merentasi elektrod di dalam ruang vakum.",
+                "english": "State the type of motion of the electron beam which moves across the electrodes in the vacuum space."
+              }
+            },
+            {
+              "type": "answer_space",
+              "format": "line",
+              "lines": 1
+            }
+          ]
+        },
+        {
+          "number": "7(b)",
+          "marks": 3,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Hitung halaju maksimum elektron merentasi katod dan anod.",
+                "english": "Calculate the maximum velocity of the electron across the cathode and anode."
+              }
+            },
+            {
+              "type": "text",
+              "text": {
+                "malay": "[Jisim elektron, m = 9.11 x 10⁻³¹ kg, cas satu elektron, e = 1.6 x 10⁻¹⁹ C]",
+                "english": "[Mass of an electron, m = 9.11 x 10⁻³¹ kg, charge of an electron, e = 1.6 x 10⁻¹⁹ C]"
+              }
+            },
+            {
+              "type": "answer_space",
+              "format": "blank-space"
+            }
+          ]
+        },
+        {
+          "number": "7(c)",
+          "marks": 1,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Rajah 7.2 menunjukkan penghasilan sinar katod dalam sebuah tiub vakum.",
+                "english": "Diagram 7.2 shows the production of cathode rays in a vacuum tube."
+              }
+            },
+            {
+              "type": "diagram",
+              "number": "7.2",
+              "page": 21
+            },
+            {
+              "type": "text",
+              "text": {
+                "malay": "Jadual 1 menunjukkan ciri-ciri bagi filamen pemanas P, Q dan R.",
+                "english": "Table 1 shows the characteristics of the heating filament P, Q and R."
+              }
+            },
+            {
+              "type": "table",
+              "number": "1",
+              "page": 22
+            },
+            {
+              "type": "text",
+              "text": {
+                "malay": "Berdasarkan Jadual 1, nyatakan ciri-ciri yang sesuai bagi suatu filamen pemanas.",
+                "english": "Based on Table 1, state the suitable characteristics of a heating filament."
+              }
+            }
+          ],
+          "sub_questions": [
+            {
+              "number": "7(c)(i)",
+              "marks": 2,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "Jenis bahan",
+                    "english": "Type of material"
+                  }
+                },
+                {
+                  "type": "answer_space",
+                  "format": "line",
+                  "lines": 1
+                },
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "Sebab",
+                    "english": "Reason"
+                  }
+                },
+                {
+                  "type": "answer_space",
+                  "format": "line",
+                  "lines": 1
+                }
+              ]
+            },
+            {
+              "number": "7(c)(ii)",
+              "marks": 2,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "Bentuk",
+                    "english": "Shape"
+                  }
+                },
+                {
+                  "type": "answer_space",
+                  "format": "line",
+                  "lines": 1
+                },
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "Sebab",
+                    "english": "Reason"
+                  }
+                },
+                {
+                  "type": "answer_space",
+                  "format": "line",
+                  "lines": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "number": "7(d)",
+          "marks": 1,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Berdasarkan jawapan anda di 7(c)(i) dan 7(c)(ii), tentukan filamen pemanas yang paling sesuai.",
+                "english": "Based on your answer in 7(c)(i) and 7(c)(ii), determine the most suitable heating filament."
+              }
+            },
+            {
+              "type": "answer_space",
+              "format": "line",
+              "lines": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": "8",
+      "content_flow": [
+        {
+          "type": "text",
+          "text": {
+            "malay": "Rajah 8.1 menunjukkan sebuah lampu LED yang berlabel 240 V, 12 W.",
+            "english": "Diagram 8.1 shows a LED lamp labelled 240 V, 12 W."
+          }
+        },
+        {
+          "type": "diagram",
+          "number": "8.1",
+          "page": 24
+        }
+      ],
+      "questions": [
+        {
+          "number": "8(a)",
+          "marks": 1,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Apakah yang dimaksudkan dengan label 240 V, 12 W?",
+                "english": "What is the meaning of label 240 V, 12 W?"
+              }
+            },
+            {
+              "type": "answer_space",
+              "format": "line",
+              "lines": 1
+            }
+          ]
+        },
+        {
+          "number": "8(b)",
+          "marks": 2,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Hitung tenaga elektrik yang digunakan oleh lampu LED dalam masa 5 jam.",
+                "english": "Calculate the electrical energy used by LED lamp in 5 hours."
+              }
+            },
+            {
+              "type": "answer_space",
+              "format": "blank-space"
+            }
+          ]
+        },
+        {
+          "number": "8(c)",
+          "marks": 1,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Rajah 8.2 menunjukkan susun atur lampu yang akan dibina untuk menerangi halaman sebuah kediaman pada waktu malam.",
+                "english": "Diagram 8.2 shows the layout of the lights that will be built to illuminate the courtyard of a residence at night."
+              }
+            },
+            {
+              "type": "diagram",
+              "number": "8.2",
+              "page": 25
+            },
+            {
+              "type": "text",
+              "text": {
+                "malay": "Nyatakan ciri-ciri dawai yang digunakan dalam sistem pendawaian lampu supaya dapat mengurangkan penggunaan tenaga elektrik dan berfungsi dengan berkesan.",
+                "english": "State the characteristics of the wire used in the lamp wiring system to reduce the electrical energy consumption and can function effectively."
+              }
+            }
+          ],
+          "sub_questions": [
+            {
+              "number": "8(c)(i)",
+              "marks": 2,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "Jenis dawai penyambung",
+                    "english": "Type of connecting wire"
+                  }
+                },
+                {
+                  "type": "answer_space",
+                  "format": "line",
+                  "lines": 1
+                },
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "Sebab",
+                    "english": "Reason"
+                  }
+                },
+                {
+                  "type": "answer_space",
+                  "format": "line",
+                  "lines": 1
+                }
+              ]
+            },
+            {
+              "number": "8(c)(ii)",
+              "marks": 2,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "Luas keratan rentas",
+                    "english": "Cross section area"
+                  }
+                },
+                {
+                  "type": "answer_space",
+                  "format": "line",
+                  "lines": 1
+                },
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "Sebab",
+                    "english": "Reason"
+                  }
+                },
+                {
+                  "type": "answer_space",
+                  "format": "line",
+                  "lines": 1
+                }
+              ]
+            },
+            {
+              "number": "8(c)(iii)",
+              "marks": 2,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "Jenis sambungan lampu",
+                    "english": "Type of connection of lamps"
+                  }
+                },
+                {
+                  "type": "answer_space",
+                  "format": "line",
+                  "lines": 1
+                },
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "Sebab",
+                    "english": "Reason"
+                  }
+                },
+                {
+                  "type": "answer_space",
+                  "format": "line",
+                  "lines": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": "9",
+      "content_flow": [
+        {
+          "type": "text",
+          "text": {
+            "malay": "Rajah 9.1 menunjukkan struktur ringkas sebuah sistem hidraulik.",
+            "english": "Diagram 9.1 shows a simple structure of a hydraulic system."
+          }
+        },
+        {
+          "type": "diagram",
+          "number": "9.1",
+          "page": 27
+        }
+      ],
+      "questions": [
+        {
+          "number": "9(a)",
+          "marks": 1,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Nyatakan prinsip yang diaplikasikan pada sistem hidraulik itu.",
+                "english": "State the principle applied to the hydraulic system."
+              }
+            }
+          ]
+        },
+        {
+          "number": "9(b)",
+          "marks": 4,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Terangkan prinsip kerja sistem hidraulik.",
+                "english": "Explain the working principle of the hydraulic system."
+              }
+            }
+          ]
+        },
+        {
+          "number": "9(c)",
+          "marks": 10,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Rajah 9.2 menunjukkan sebuah jambatan hidaulik.",
+                "english": "Diagram 9.2 shows a hydraulic bridge."
+              }
+            },
+            {
+              "type": "diagram",
+              "number": "9.2",
+              "page": 28
+            },
+            {
+              "type": "text",
+              "text": {
+                "malay": "Anda dikehendaki menyiasat ciri-ciri bagi jambatan hidraulik seperti yang ditunjukkan dalam Jadual 2.",
+                "english": "You are required to investigate the characteristics of a hydraulic bridge as shown in Table 2."
+              }
+            },
+            {
+              "type": "table",
+              "number": "2",
+              "page": 28
+            },
+            {
+              "type": "text",
+              "text": {
+                "malay": "Terangkan kesesuaian setiap ciri jambatan hidraulik. Tentukan jambatan hidraulik yang dapat dikendalikan dengan lebih cekap.",
+                "english": "Explain the suitability of each characteristic of hydraulic bridge. Determine the hydraulic bridge that can be operated more effective."
+              }
+            }
+          ]
+        },
+        {
+          "number": "9(d)",
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Dalam model jambatan hidraulik itu, luas keratan rentas bgi omboh besar dan omboh kecil masing-masing adalah 0.01 m² dan 0.002 m². Daya 5 N dikenakan pada omboh kecil.",
+                "english": "In the model of hydraulic bridge, the cross-sectional area of the large piston and the small piston are 0.01 m² and 0.002 m² respectively. A force of 5 N is applied to the small piston."
+              }
+            },
+            {
+              "type": "text",
+              "text": {
+                "malay": "Hitung",
+                "english": "Calculate"
+              }
+            }
+          ],
+          "sub_questions": [
+            {
+              "number": "9(d)(i)",
+              "marks": 2,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "tekanan, P yang terhasil pada omboh kecil.",
+                    "english": "the pressure, P produced on the small piston."
+                  }
+                }
+              ]
+            },
+            {
+              "number": "9(d)(ii)",
+              "marks": 3,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "daya, F yang dikenakan pada omboh besar.",
+                    "english": "the force, F applied to the large piston."
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": "10",
+      "content_flow": [
+        {
+          "type": "text",
+          "text": {
+            "malay": "Rajah 10.1 menunjukkan corak muka gelombang bagi gelombang air.",
+            "english": "Diagram 10.1 shows the wavefront pattern of water wave."
+          }
+        },
+        {
+          "type": "diagram",
+          "number": "10.1",
+          "page": 30
+        }
+      ],
+      "questions": [
+        {
+          "number": "10(a)",
+          "marks": 1,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Namakan fenomena yang terlibat.",
+                "english": "Name the phenomenon involved."
+              }
+            }
+          ]
+        },
+        {
+          "number": "10(b)",
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Berdasarkan Rajah 10.1,",
+                "english": "Based on Diagram 10.1,"
+              }
+            }
+          ],
+          "sub_questions": [
+            {
+              "number": "10(b)(i)",
+              "marks": 2,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "apakah yang berlaku kepada amplitud dan laju gelombang tersebut selepas melalui penghalang?",
+                    "english": "what happened to the amplitude and the speed of the wave after passes through the barrier?"
+                  }
+                }
+              ]
+            },
+            {
+              "number": "10(b)(ii)",
+              "marks": 2,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "Jelaskan jawapan anda di 10(b)(i).",
+                    "english": "Explain your answer in 10(b)(i)."
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "number": "10(c)",
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Rajah 10.2 menunjukkan menara pemancar yang digunakan dalam pemancaran gelombang elektromagnet untuk tujuan telekomunikasi.",
+                "english": "Diagram 10.2 shows a transmission tower being used for transmission of electromagnetic waves in telecommunication."
+              }
+            },
+            {
+              "type": "diagram",
+              "number": "10.2",
+              "page": 31
+            },
+            {
+              "type": "text",
+              "text": {
+                "malay": "Jadual 3 menunjukkan spesifikasi bagi empat sistem pemancaran S, T, U dan V yang boleh digunakan untuk memancarkan gelombang elektromagnet dalam telekomunikasi.",
+                "english": "Table 3 shows the specifications of four transmitting systems S, T, U and V, that can be used for transmitting electromagnetic waves in telecommunication."
+              }
+            },
+            {
+              "type": "table",
+              "number": "3",
+              "page": 31
+            },
+            {
+              "type": "text",
+              "text": {
+                "malay": "Kaji dan tentukan sistem pemancaran yang paling sesuai untuk meningkatkan kualiti penghantaran isyarat.",
+                "english": "Study and determine the most suitable transmitting systems to improve the quality of transmission of signal."
+              }
+            }
+          ],
+          "sub_questions": [
+            {
+              "number": "10(c)(i)",
+              "marks": 8,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "Terangkan kesesuaian bagi setiap spesifikasi.",
+                    "english": "Explain the suitability for each specification."
+                  }
+                }
+              ]
+            },
+            {
+              "number": "10(c)(ii)",
+              "marks": 2,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "Pilih sustem yang paling sesuai. Berikan sebab untuk pilihan anda.",
+                    "english": "Choose the most suitable system. Give reason for your choice."
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "number": "10(d)",
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Bot nelayan yang besar menggunakan gelombang ultrasonik untuk mengesan sekumpulan ikan di bawah bot.",
+                "english": "A large fishing boat uses ultrasonic wave to detect the location of a shoal of fish below the boat."
+              }
+            },
+            {
+              "type": "text",
+              "text": {
+                "malay": "Laju gelombang ultrasonik 1500 m s⁻¹ ditujukan ke arah ikan, hitungkan",
+                "english": "Ultrasonic wave of speed 1500 m s⁻¹ is directed towards the fish, calculate"
+              }
+            }
+          ],
+          "sub_questions": [
+            {
+              "number": "10(d)(i)",
+              "marks": 2,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "frekuensi gelombang itu, jika panjang gelombang ialah 3.2 cm,",
+                    "english": "the wave frequency, if the wavelength is 3.2 cm,"
+                  }
+                }
+              ]
+            },
+            {
+              "number": "10(d)(ii)",
+              "marks": 3,
+              "content_flow": [
+                {
+                  "type": "text",
+                  "text": {
+                    "malay": "kedalaman ikan, jika gema diterima selepas 73 ms.",
+                    "english": "the depth of the fish if the echo is received after 73 ms."
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": "11",
+      "content_flow": [
+        {
+          "type": "text",
+          "text": {
+            "malay": "Rajah 11.1 menunjukkan seorang budak bermain kuda berspring.",
+            "english": "Diagram 11.1 shows a child playing a horse spring."
+          }
+        },
+        {
+          "type": "diagram",
+          "number": "11.1",
+          "page": 33
+        }
+      ],
+      "questions": [
+        {
+          "number": "11(a)",
+          "marks": 1,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Nyatakan hukum Hooke.",
+                "english": "State Hooke's law."
+              }
+            }
+          ]
+        },
+        {
+          "number": "11(b)",
+          "marks": 4,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Rajah 11.2(a) menunjukkan panjang asal spring itu sebelum satu beban diletakkan di atasnya.\\nRajah 11.2(b) menunjukkan spring yang sama selepas beban itu dialihkan.",
+                "english": "Diagram 11.2(a) shows the original length of the spring before a load is placed on it.\\nDiagram 11.2(b) shows the same spring after the load is removed."
+              }
+            },
+            {
+              "type": "row",
+              "items": [
+                {
+                  "type": "diagram",
+                  "number": "11.2(a)",
+                  "page": 33
+                },
+                {
+                  "type": "diagram",
+                  "number": "11.2(b)",
+                  "page": 33
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": {
+                "malay": "Menggunakan konsep fizik yang betul, jelaskan perubahan keadaan spring itu.",
+                "english": "Using the correct physics concept, explain the changes of the condition of the spring."
+              }
+            }
+          ]
+        },
+        {
+          "number": "11(c)",
+          "marks": 5,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Rajah 11.3(a) menunjukkan panjang awal, L₀ spring A dan spring B.\\nRajah 11.3(b) menunjukkan panjang, L₁ selepas diletakkan beban 100 N di atasnya.",
+                "english": "Diagram 11.3(a) shows the initial length, L₀ of spring A and spring B.\\nDiagram 11.3(b) shows the length of the spring, L₁ after a load of 100 N is put on it."
+              }
+            },
+            {
+              "type": "diagram",
+              "number": "11.3(a)",
+              "page": 34
+            },
+            {
+              "type": "diagram",
+              "number": "11.3(b)",
+              "page": 34
+            },
+            {
+              "type": "text",
+              "text": {
+                "malay": "Dengan menggunakan Rajah 11.3(a) dan 11.3(b), bandingkan panjang awal spring, ketebalan spring dan pemampatan spring.\\nHubungkaitkan ketebalan spring dengan pemampatan spring untuk membuat kesimpulan berkaitan hubungan antara ketebalan spring dan pemalar spring.",
+                "english": "By using Diagram 11.3(a) and 11.3(b), compare the initial length of spring, thickness of spring and compression of the spring.\\nRelate the thickness of the spring and the compression of the spring to make a deduction regarding the relationship between the thickness of spring and the spring constant."
+              }
+            }
+          ]
+        },
+        {
+          "number": "11(d)",
+          "marks": 10,
+          "content_flow": [
+            {
+              "type": "text",
+              "text": {
+                "malay": "Rajah 11.4 menunjukkan sebuah sofa yang menggunakan spring sebagai penyokong beban.",
+                "english": "Diagram 11.4 shows a sofa that uses springs as a load supporter."
+              }
+            },
+            {
+              "type": "diagram",
+              "number": "11.4",
+              "page": 35
+            },
+            {
+              "type": "text",
+              "text": {
+                "malay": "Menggunakan konsep fizik yang sesuai, cadangkan penggunaan bahan dan reka bentuk sofa yang sesuai untuk menampung seseorang yang berjisim besar dan lebih selesa.\\nCadangan anda mestilah merangkumi ciri-ciri spring dan ciri tambahan.",
+                "english": "Using appropriate physics concepts, suggest the use of materials and appropriate design of sofa that can accommodate a person with a larger mass and more comfortable.\\nYour proposal must include the characteristics of the spring and the additional features."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
