@@ -215,8 +215,8 @@
             {
               "type": "text",
               "text": {
-                "malay": "Laju gelombang air di laut cetek dan laut dalam masing-masing ialah 4.0 m s⁻¹ dan 9.0 m s⁻¹. Panjang gelombang di laut dalam adalah 5.0 m.\\n Hitung panjang gelombang di laut cetek.",
-                "english": "The speed of water waves in shallow sea and deep sea are 4.0 m s⁻¹ and 9.0 m s⁻¹ respectively. The wavelength in the deep sea is 5.0 m.\\n Calculate the wavelength in the shallow sea."
+                "malay": "Laju gelombang air di laut cetek dan laut dalam masing-masing ialah 4.0 m s⁻¹ dan 9.0 m s⁻¹. Panjang gelombang di laut dalam adalah 5.0 m.\n Hitung panjang gelombang di laut cetek.",
+                "english": "The speed of water waves in shallow sea and deep sea are 4.0 m s⁻¹ and 9.0 m s⁻¹ respectively. The wavelength in the deep sea is 5.0 m.\n Calculate the wavelength in the shallow sea."
               }
             },
             {
@@ -293,8 +293,8 @@
                 {
                   "type": "text",
                   "text": {
-                    "malay": "hitungkan kualiti haba yang diserap oleh ais ketika peleburan.\\nAndaikan tiada haba terbebas ke persekitaran.",
-                    "english": "calculate the quantity of heat absorbed by the ice during melting.\\nAssume no heat released to the surrounding."
+                    "malay": "hitungkan kualiti haba yang diserap oleh ais ketika peleburan.\nAndaikan tiada haba terbebas ke persekitaran.",
+                    "english": "calculate the quantity of heat absorbed by the ice during melting.\nAssume no heat released to the surrounding."
                   }
                 },
                 {
@@ -366,8 +366,8 @@
             {
               "type": "text",
               "text": {
-                "malay": "Diberikan\\nG = 6.67 x 10⁻¹¹ N m² kg⁻²\\nJisim Matahari = 1.99 x 10³⁰ kg\\nJisim Bumi = 5.97 x 10²⁴ kg\\nJejari Bumi = 6.37 x 10⁶ m\\nJarak antara Matahari dan Bumi = 1.5 x 10¹¹ m",
-                "english": "Given\\nG = 6.67 x 10⁻¹¹ N m² kg⁻²\\nMass of the Sun = 1.99 x 10³⁰ kg\\nMass of the Earth = 5.97 x 10²⁴ kg\\nEarth radius = 6.37 x 10⁶ m\\nDistance between the Sun and the Earth = 1.5 x 10¹¹ m"
+                "malay": "Diberikan\nG = 6.67 x 10⁻¹¹ N m² kg⁻²\nJisim Matahari = 1.99 x 10³⁰ kg\nJisim Bumi = 5.97 x 10²⁴ kg\nJejari Bumi = 6.37 x 10⁶ m\nJarak antara Matahari dan Bumi = 1.5 x 10¹¹ m",
+                "english": "Given\nG = 6.67 x 10⁻¹¹ N m² kg⁻²\nMass of the Sun = 1.99 x 10³⁰ kg\nMass of the Earth = 5.97 x 10²⁴ kg\nEarth radius = 6.37 x 10⁶ m\nDistance between the Sun and the Earth = 1.5 x 10¹¹ m"
               }
             },
             {
@@ -400,8 +400,8 @@
                 {
                   "type": "text",
                   "text": {
-                    "malay": "Roket yang berada di tapak pelancaran mengalami daya graviti 5.0 x 10⁵ N.\\nHitungkan pecutan roket.",
-                    "english": "The rocket at the launch site experiences a gravitational force of 5.0 x 10⁵ N.\\nCalculate the acceleration of the rocket."
+                    "malay": "Roket yang berada di tapak pelancaran mengalami daya graviti 5.0 x 10⁵ N.\nHitungkan pecutan roket.",
+                    "english": "The rocket at the launch site experiences a gravitational force of 5.0 x 10⁵ N.\nCalculate the acceleration of the rocket."
                   }
                 },
                 {
@@ -437,8 +437,8 @@
             {
               "type": "text",
               "text": {
-                "malay": "Mengikut Hukum Kegravitian Semesta Newton, dua orang di permukaan Bumi akan mengalami daya graviti.\\nTerangkan mengapa kesan daya tersebut tidak dirasai?",
-                "english": "According to Newton's Universal Law of Gravitation, two persons on the surface of the Earth experience the gravitational force.\\nExplain why the effect of this force is not felt?"
+                "malay": "Mengikut Hukum Kegravitian Semesta Newton, dua orang di permukaan Bumi akan mengalami daya graviti.\nTerangkan mengapa kesan daya tersebut tidak dirasai?",
+                "english": "According to Newton's Universal Law of Gravitation, two persons on the surface of the Earth experience the gravitational force.\nExplain why the effect of this force is not felt?"
               }
             },
             {
@@ -1574,8 +1574,8 @@
             {
               "type": "text",
               "text": {
-                "malay": "Rajah 11.2(a) menunjukkan panjang asal spring itu sebelum satu beban diletakkan di atasnya.\\nRajah 11.2(b) menunjukkan spring yang sama selepas beban itu dialihkan.",
-                "english": "Diagram 11.2(a) shows the original length of the spring before a load is placed on it.\\nDiagram 11.2(b) shows the same spring after the load is removed."
+                "malay": "Rajah 11.2(a) menunjukkan panjang asal spring itu sebelum satu beban diletakkan di atasnya.\nRajah 11.2(b) menunjukkan spring yang sama selepas beban itu dialihkan.",
+                "english": "Diagram 11.2(a) shows the original length of the spring before a load is placed on it.\nDiagram 11.2(b) shows the same spring after the load is removed."
               }
             },
             {
@@ -1609,8 +1609,8 @@
             {
               "type": "text",
               "text": {
-                "malay": "Rajah 11.3(a) menunjukkan panjang awal, L₀ spring A dan spring B.\\nRajah 11.3(b) menunjukkan panjang, L₁ selepas diletakkan beban 100 N di atasnya.",
-                "english": "Diagram 11.3(a) shows the initial length, L₀ of spring A and spring B.\\nDiagram 11.3(b) shows the length of the spring, L₁ after a load of 100 N is put on it."
+                "malay": "Rajah 11.3(a) menunjukkan panjang awal, L₀ spring A dan spring B.\nRajah 11.3(b) menunjukkan panjang, L₁ selepas diletakkan beban 100 N di atasnya.",
+                "english": "Diagram 11.3(a) shows the initial length, L₀ of spring A and spring B.\nDiagram 11.3(b) shows the length of the spring, L₁ after a load of 100 N is put on it."
               }
             },
             {
@@ -1626,8 +1626,8 @@
             {
               "type": "text",
               "text": {
-                "malay": "Dengan menggunakan Rajah 11.3(a) dan 11.3(b), bandingkan panjang awal spring, ketebalan spring dan pemampatan spring.\\nHubungkaitkan ketebalan spring dengan pemampatan spring untuk membuat kesimpulan berkaitan hubungan antara ketebalan spring dan pemalar spring.",
-                "english": "By using Diagram 11.3(a) and 11.3(b), compare the initial length of spring, thickness of spring and compression of the spring.\\nRelate the thickness of the spring and the compression of the spring to make a deduction regarding the relationship between the thickness of spring and the spring constant."
+                "malay": "Dengan menggunakan Rajah 11.3(a) dan 11.3(b), bandingkan panjang awal spring, ketebalan spring dan pemampatan spring.\nHubungkaitkan ketebalan spring dengan pemampatan spring untuk membuat kesimpulan berkaitan hubungan antara ketebalan spring dan pemalar spring.",
+                "english": "By using Diagram 11.3(a) and 11.3(b), compare the initial length of spring, thickness of spring and compression of the spring.\nRelate the thickness of the spring and the compression of the spring to make a deduction regarding the relationship between the thickness of spring and the spring constant."
               }
             }
           ]
@@ -1651,8 +1651,8 @@
             {
               "type": "text",
               "text": {
-                "malay": "Menggunakan konsep fizik yang sesuai, cadangkan penggunaan bahan dan reka bentuk sofa yang sesuai untuk menampung seseorang yang berjisim besar dan lebih selesa.\\nCadangan anda mestilah merangkumi ciri-ciri spring dan ciri tambahan.",
-                "english": "Using appropriate physics concepts, suggest the use of materials and appropriate design of sofa that can accommodate a person with a larger mass and more comfortable.\\nYour proposal must include the characteristics of the spring and the additional features."
+                "malay": "Menggunakan konsep fizik yang sesuai, cadangkan penggunaan bahan dan reka bentuk sofa yang sesuai untuk menampung seseorang yang berjisim besar dan lebih selesa.\nCadangan anda mestilah merangkumi ciri-ciri spring dan ciri tambahan.",
+                "english": "Using appropriate physics concepts, suggest the use of materials and appropriate design of sofa that can accommodate a person with a larger mass and more comfortable.\nYour proposal must include the characteristics of the spring and the additional features."
               }
             }
           ]
