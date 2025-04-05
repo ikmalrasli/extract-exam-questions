@@ -1,7 +1,7 @@
 <template>
   <div v-if="content.format === 'line'">
-    <div v-for="index in content.lines" :key="index" class="pt-2">
-      ...............
+    <div v-for="index in content.lines" :key="index" class="space-y-2">
+      <div class="mt-6 w-full border-b-2 border-black border-dotted"></div>
     </div>
   </div>
   <span v-else-if="content.format === 'blank-space'">
