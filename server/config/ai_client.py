@@ -8,14 +8,18 @@ def get_ai_response(file, start, end):
   
   model = "gemini-2.0-flash"
   
-  base_dir = os.path.dirname(os.path.abspath(__file__))  # Get the directory of the current file
-  reference_input_file_path = os.path.join(base_dir, "..", "assets", "reference_input.pdf")
-  reference_output_file_path = os.path.join(base_dir, "..", "assets", "reference_output.txt")
+  # Get reference files
+  base_dir = os.path.dirname(os.path.abspath(__file__))
+  reference_input_1_file_path = os.path.join(base_dir, "..", "assets", "reference_input_1.pdf")
+  reference_output_1_file_path = os.path.join(base_dir, "..", "assets", "reference_output_1.txt")
+  reference_input_2_file_path = os.path.join(base_dir, "..", "assets", "reference_input_2.pdf")
+  reference_output_2_file_path = os.path.join(base_dir, "..", "assets", "reference_output_2.txt")
+  
   files = [
-    # Make the reference input file available in local system working directory
-    client.files.upload(file=reference_input_file_path),
-    # Make the reference output file available in local system working directory
-    client.files.upload(file=reference_output_file_path)
+    client.files.upload(file=reference_input_1_file_path),
+    client.files.upload(file=reference_output_1_file_path),
+    client.files.upload(file=reference_input_2_file_path),
+    client.files.upload(file=reference_output_2_file_path)
   ]
   
   fixed_contents = [
@@ -39,7 +43,7 @@ def get_ai_response(file, start, end):
      - \"text\": Contains question descriptions and instructions (in english and malay, segregated by \"english\" and \"malay\" keys respectively)
      - \"diagram\": Represents figures, charts, or illustrations.
      - \"table\": Represents tabular data extracted from the document.
-     - \"row\": A multi-column layout for side-by-side diagrams or elements on the same row.
+     - \"row\": A multi-column layout for side-by-side diagrams, tables, text, answer spaces on the same row (same y-coordinates).
      - \"answer_space\": Represents the space given for writing down answers.
 - Ensure the structure remains hierarchical:
      - Main questions (main_questions) should be nested under the top-level JSON object.
@@ -49,6 +53,8 @@ def get_ai_response(file, start, end):
      - Maintain the original order of elements as they appear in the PDF.
 
 **GENERAL SCHEMA**
+Guide to identify main questions:
+- numbered \"1\", \"2\", \"3\", etc in **bold** font
 ```json
 {
     \"main_questions\": [
@@ -224,14 +230,14 @@ def get_ai_response(file, start, end):
 **CONTENT FLOW ELEMENTS**
 - **Text**
     - Extract text and segregate into malay and english keys.
-    - If there is a new line but within the same language, add a \\\\\\\\n
+    - If there is a new line but within the same language, add a \\n
     - Example JSON object:
 ```json
 {
  	\"type\": \"text\",
     \"text\": {
-        \"malay\": \"Apakah kesan negatif penggunaan tenaga hidroelektrik?\\\\nBerikan sebab\",
-        \"english\": \"What are the negative impacts of using hydroelectric energy?\\\\nGive reasons.\"
+        \"malay\": \"Apakah kesan negatif penggunaan tenaga hidroelektrik?\\nBerikan sebab\",
+        \"english\": \"What are the negative impacts of using hydroelectric energy?\\nGive reasons.\"
     }
 }
 ```
@@ -264,10 +270,10 @@ def get_ai_response(file, start, end):
 }
 ```
 
-- Row
-    - A multi-column layout for side-by-side diagrams or elements.
+- **Row**
+    - A multi-column layout for side-by-side diagrams, tables, text, answer spaces on the same row.
     - Extract the layout type and the items within the row.
-    - Number of columns MUST match the number of items.
+    - The items listed must be same or similar y-coordinates to be considered within the same row.
     - Example 1 JSON object:
 ```json
 {
@@ -377,20 +383,18 @@ def get_ai_response(file, start, end):
             parts=[
                 types.Part.from_text(text="""Okay, I understand the rules and schema. I am ready to process the exam question papers and extract the content into the specified JSON format. I will pay close attention to:
 
-*   Maintaining the correct hierarchical structure (main\\_questions > questions > sub\\_questions).
-*   Accurately identifying and categorizing content flow elements (text, diagram, table, row, answer\\_space).
-*   Segregating text into Malay and English where applicable.
-*   Extracting diagram and table numbers along with their page numbers.
-*   Handling different answer space formats (line, multiple-choice, blank-space) correctly.
-*   Including marks for questions and sub-questions.
-*   Omitting answer spaces for Main Questions 9 to 11 and their nested questions and sub-questions.
-*   Avoiding null values.
-
-I am waiting for you to provide the exam question paper content.
+-   Maintaining the correct hierarchical structure.
+-   Accurately identifying and categorizing content flow elements (text, diagram, table, row, answer\\_space).
+-   Handling Malay and English text appropriately.
+-   Extracting marks for questions and sub-questions.
+-   Avoiding null values.
+-   Excluding answer spaces for Main Questions 9 to 11 and their nested questions/sub-questions.
+-   Including diagram, table numbers and their page number.
+-   Following the numbering convention for main questions, questions, and sub-questions.
 """),
             ],
         ),
-        # Reference examples
+        # Example 1
         types.Content(
             role="user",
             parts=[
@@ -402,26 +406,37 @@ I am waiting for you to provide the exam question paper content.
                     file_uri=files[1].uri,
                     mime_type=files[1].mime_type,
                 ),
-                types.Part.from_text(text="""Attached are the example input and output that can be used as **reference** when extracting contents from provided PDF later.
-Do not copy exactly from these references when generating JSON output, ONLY study the reference PDF and the output structure. """),
+                types.Part.from_text(text="""Attached here are the first input and output examples that can be used as **reference** when extracting contents from provided PDF later.
+Do not copy exactly from these references when generating JSON output, ONLY study the reference PDF and the output structure."""),
             ],
         ),
         types.Content(
             role="model",
             parts=[
-                types.Part.from_text(text="""Okay, I have studied the example input PDF and the corresponding reference JSON output. I understand the expected structure, the types of content to extract, and how to represent them in the JSON format.
-
-I will use this knowledge to process future PDF exam papers, ensuring that the generated JSON:
-
--   Follows the hierarchical structure of main questions, questions, and sub-questions.
--   Accurately extracts text, diagrams, tables, and answer spaces.
--   Segregates Malay and English text correctly.
--   Represents answer spaces with the appropriate format (line, multiple-choice, or blank-space) and attributes.
--   Includes marks for each question/sub-question where applicable.
--   Excludes answer spaces for Main Questions 9-11.
--   Maintains the original order of content as it appears in the PDF.
-
-I am ready to receive and process the next PDF content.
+                types.Part.from_text(text="""Okay, I have analyzed the provided reference output and I have a clear understanding of the expected JSON structure, the different content\\_flow types, and the overall extraction logic. I will use this understanding to process future exam papers and generate accurate JSON outputs.
+"""),
+            ],
+        ),
+        # Example 2
+        types.Content(
+            role="user",
+            parts=[
+                types.Part.from_uri(
+                    file_uri=files[2].uri,
+                    mime_type=files[2].mime_type,
+                ),
+                types.Part.from_uri(
+                    file_uri=files[3].uri,
+                    mime_type=files[3].mime_type,
+                ),
+                types.Part.from_text(text="""Attached here are the second input and output examples that can be used as reference when extracting contents from provided PDF later.
+Do not copy exactly from these references when generating JSON output, ONLY study the reference PDF and the output structure."""),
+            ],
+        ),
+        types.Content(
+            role="model",
+            parts=[
+                types.Part.from_text(text="""Understood. I have carefully studied the second reference input and output. I'm now well-equipped with different scenarios and ready to work on the actual PDF content.
 """),
             ],
         ),
@@ -433,22 +448,19 @@ I am ready to receive and process the next PDF content.
                     data=file,
                     mime_type="application/pdf",
                 ),
-                types.Part.from_text(text=f"Extract **Main Questions {start} to {end}** for this PDF"),
+                types.Part.from_text(text=f"Extract **Main Questions {start} to {end}** for this PDF."),
             ],
         ),
     ]
-  
+
   generate_content_config = types.GenerateContentConfig(
-    temperature=1,
-    top_p=0.95,
-    top_k=40,
-    max_output_tokens=8192,
-    response_mime_type="application/json",
-    system_instruction=[
-            types.Part.from_text(text="""Your task is to extract PDF files according to the rules, schema and example files given and MUST respond in valid JSON format.
-Avoid null values at ALL COSTS."""),
-        ]
-  )
+        temperature=0.2,
+        top_p=0.9,
+        response_mime_type="application/json",
+        system_instruction=[
+            types.Part.from_text(text="""You are an AI assistant tasked with extracting structured data from an exam question paper PDF. Return your output in a clean, hierarchical JSON format that accurately reflects the structure of the questions."""),
+        ],
+    )
   
   response = client.models.generate_content(
     model = model,
