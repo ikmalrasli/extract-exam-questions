@@ -15,7 +15,8 @@ from modules.utils import get_reference_pdf, get_rasterized_pdf
 from modules.wordgen import generate
 from modules.crop_img import get_images, update_json_with_url
 
-from config.ai_client import get_ai_response
+# from config.ai_client import get_ai_response
+from config.ai_client import AIClient
 
 from db.init import init_db
 
@@ -100,88 +101,69 @@ def extract_data(pdf, document_id):
     start_time = time.time()  # Capture the start time
     full_json = {}
     combined_main_questions = []  # Initialize a list to hold combined questions
-
-    ranges = [(1, 4), (5, 8), (9, 11)]
-    for start, end in ranges:
-        attempts = 0
-        max_attempts = 5
-        success = False
-        
-        while attempts < max_attempts and not success:
-            attempts += 1
-            print(f"Attempt {attempts}: Extracting questions for {start} to {end}")
-            
-            try:
-                response = get_ai_response(pdf, start, end)
-                response_json = json.loads(response.text)
-                
-                if "main_questions" in response_json:
-                    combined_main_questions.extend(response_json["main_questions"])
-                
-                print(f"Questions extracted successfully for {start} to {end}")
-                success = True
-            except Exception as e:
-                print(f"Error extracting questions for {start} to {end} (Attempt {attempts}): {str(e)}")
-                if attempts == max_attempts:
-                    print(f"Failed to extract questions for {start} to {end} after {max_attempts} attempts")
-                    print(response.text)
-                    supabase.table("documents").update({"status": "failed"}).eq("id", document_id).execute()
-                    raise HTTPException(status_code=500, 
-                        detail=f"Failed to extract questions for range {start}-{end} after {max_attempts} attempts")
+    ai_client = AIClient()
     
-    full_json["main_questions"] = combined_main_questions
+    ranges = [(1, 4), (5, 8), (9, 11)]
 
-    # Call the cropping function and get cropped images
-    cropped_images = get_images(pdf, full_json)
-
-    for cropped_image, expected_num, expected_type, page_num in cropped_images:
-        # Validate image
-        if cropped_image is None or cropped_image.size == 0:
-            print(f"Invalid image data for page {page_num} - skipping")
-            continue
+    try:
+        combined_main_questions = ai_client.extract_questions(pdf, ranges)
+        full_json = {"main_questions": combined_main_questions}
         
-        try:
-            h, w = cropped_image.shape[:2]
-            if h == 0 or w == 0:
-                print(f"Empty image dimensions for page {page_num} - skipping")
-                continue
-        except Exception as e:
-            print(f"Invalid image format for page {page_num}: {str(e)} - skipping")
-            continue
+        # Call the cropping function and get cropped images
+        # cropped_images = get_images(pdf, full_json)
 
-        # Encode image
-        success, buffer = cv2.imencode('.jpg', cropped_image, [cv2.IMWRITE_JPEG_QUALITY, 90])
-        if not success or buffer.size == 0:
-            print(f"Failed to encode image for page {page_num} - skipping")
-            continue
-
-        # Create safe filename
-        file_name = f"page_{page_num}_{expected_type}_{expected_num}.jpg"
-        file_name = re.sub(r'[^\w\-_. ]', '_', file_name)
-        
-        # Save image
-        try:
-            supabase.storage.from_("img").upload(f"{document_id}/{file_name}", buffer.tobytes())
-            file_url = supabase.storage.from_("img").get_public_url(f"{document_id}/{file_name}")
-            update_json_with_url(full_json, page_num, expected_type, expected_num, file_url)
+        # for cropped_image, expected_num, expected_type, page_num in cropped_images:
+        #     # Validate image
+        #     if cropped_image is None or cropped_image.size == 0:
+        #         print(f"Invalid image data for page {page_num} - skipping")
+        #         continue
             
-            print(f"Successfully uploaded image. URL: {file_url}")
-        except Exception as e:
-            print(f"Failed to upload image {file_name}: {str(e)}")
-            continue
-            
-        
+        #     try:
+        #         h, w = cropped_image.shape[:2]
+        #         if h == 0 or w == 0:
+        #             print(f"Empty image dimensions for page {page_num} - skipping")
+        #             continue
+        #     except Exception as e:
+        #         print(f"Invalid image format for page {page_num}: {str(e)} - skipping")
+        #         continue
 
-    supabase.table("documents").update({"data": full_json, "status": "extracted"}).eq("id", document_id).execute()
-    end_time = time.time()  # Capture the end time
-    elapsed_time = end_time - start_time  # Calculate elapsed time
-    print(f"Total elapsed time: {elapsed_time} seconds")
-    return {
-        "status": "success",
-        "message": "Questions extracted successfully",
-        "elapsed_time": elapsed_time,
-        "data": full_json
-    }
+        #     # Encode image
+        #     success, buffer = cv2.imencode('.jpg', cropped_image, [cv2.IMWRITE_JPEG_QUALITY, 90])
+        #     if not success or buffer.size == 0:
+        #         print(f"Failed to encode image for page {page_num} - skipping")
+        #         continue
+
+        #     # Create safe filename
+        #     file_name = f"page_{page_num}_{expected_type}_{expected_num}.jpg"
+        #     file_name = re.sub(r'[^\w\-_. ]', '_', file_name)
+            
+        #     # Save image
+        #     try:
+        #         supabase.storage.from_("img").upload(f"{document_id}/{file_name}", buffer.tobytes())
+        #         file_url = supabase.storage.from_("img").get_public_url(f"{document_id}/{file_name}")
+        #         update_json_with_url(full_json, page_num, expected_type, expected_num, file_url)
+                
+        #         print(f"Successfully uploaded image. URL: {file_url}")
+        #     except Exception as e:
+        #         print(f"Failed to upload image {file_name}: {str(e)}")
+        #         continue
+                
+        supabase.table("documents").update({"data": full_json, "status": "extracted"}).eq("id", document_id).execute()
+        end_time = time.time()  # Capture the end time
+        elapsed_time = end_time - start_time  # Calculate elapsed time
+        print(f"Total elapsed time: {elapsed_time} seconds")
+        
+        return {
+            "status": "success",
+            "message": "Questions extracted successfully",
+            "elapsed_time": elapsed_time,
+            "data": full_json
+        }
+    except Exception as e:
+        print(f"Error extracting questions: {str(e)}")
+        supabase.table("documents").update({"status": "failed"}).eq("id", document_id).execute()
+        raise HTTPException(status_code=500, detail=str(e))
+
     
 @app.post("/generate_word")
 async def generate_word(request: Request):
