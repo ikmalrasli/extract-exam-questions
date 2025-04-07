@@ -20,9 +20,11 @@ class AIClient:
         self.chat_history = []
         self.uploaded_files = []
         self._initialize_chat_history()
+        self.cache_name = ""
 
     def _initialize_chat_history(self):
         """Initialize the fixed prompt content and upload reference files once"""
+        upload_time = time.time()
         base_dir = os.path.dirname(os.path.abspath(__file__))
         reference_files = [
             os.path.join(base_dir, "..", "assets", "reference_input_1.pdf"),
@@ -33,6 +35,8 @@ class AIClient:
         
         print("Uploading reference files...")
         self.uploaded_files = [self.client.files.upload(file=file_path) for file_path in reference_files]
+        upload_duration = time.time() - upload_time
+        print(f"Reference files uploaded in {upload_duration:.2f} seconds.")
 
         print("Reference files uploaded successfully.")
         self.chat_history = [
@@ -445,13 +449,8 @@ Do not copy exactly from these references when generating JSON output, ONLY stud
                 ],
             )
         ]
-    
-    # @retry(
-    #     stop=stop_after_attempt(5),
-    #     wait=wait_exponential(multiplier=1, min=2, max=10),
-    #     retry=retry_if_exception_type(Exception),
-    #     before_sleep=before_sleep_log(logger, logging.WARNING)
-    # )
+        
+        
 
     def _process_single_range(self, pdf_bytes: bytes, start: int, end: int) -> dict:
         """Process a single question range with automatic retries"""
@@ -462,7 +461,7 @@ Do not copy exactly from these references when generating JSON output, ONLY stud
                 role="user",
                 parts=[
                     types.Part.from_bytes(data=pdf_bytes, mime_type="application/pdf"),
-                    types.Part.from_text(text=f"Extract Main Questions {start} to {end}")
+                    types.Part.from_text(text=f"Extract **Main Questions {start} to {end}** ONLY. Do not extract anything else.")
                 ]
             )
         ])
@@ -482,12 +481,7 @@ Do not copy exactly from these references when generating JSON output, ONLY stud
         print(f"API usage for range {start}-{end}: {response.usage_metadata}")
         print(f"Total elapsed time for range {start}-{end}: {elapsed_time} seconds")
         
-        response_json = json.loads(response.text)
-        
-        if "main_questions" not in response_json:
-            raise ValueError("Response missing 'main_questions' key")
-            
-        return response_json
+        return response
     
     def extract_questions(self, pdf_bytes: bytes, ranges: List[Tuple[int, int]]) -> List[dict]:
         """Process multiple question ranges with comprehensive error handling"""
@@ -498,12 +492,13 @@ Do not copy exactly from these references when generating JSON output, ONLY stud
             range_success = False
             last_exception = None
             
-            for attempt in range(1, 6):  # Maximum 5 attempts per range
+            for attempt in range(1, 3):  # Maximum 5 attempts per range
                 total_attempts += 1
                 try:
                     print(f"Question {start}-{end} (Attempt {attempt})")
                     response = self._process_single_range(pdf_bytes, start, end)
-                    results.extend(response["main_questions"])
+                    response_json = json.loads(response.text)
+                    results.extend(response_json["main_questions"])
                     range_success = True
                     break
                 except Exception as e:
@@ -512,6 +507,8 @@ Do not copy exactly from these references when generating JSON output, ONLY stud
                         f"Attempt {attempt} failed for range {start}-{end}. "
                         f"Error: {str(e)}"
                     )
+                    print(response.text)
+                    print(f"^^^^^^^ questions {start}-{end} ^^^^^^^")
             
             if not range_success and last_exception:
                 print(
