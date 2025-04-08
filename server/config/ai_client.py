@@ -5,24 +5,18 @@ import time
 from typing import List, Tuple
 from google import genai
 from google.genai import types
-from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type, before_sleep_log
-# import logging
-
-# # Set up logging
-# logging.basicConfig(level=logging.INFO)
-# logger = logging.getLogger(__name__)
 
 class AIClient:
-    def __init__(self):
+    def __init__(self, pdf):
         print("Initializing AI client...")
-        self.client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
+        self.client = genai.Client(
+            api_key=os.getenv("GOOGLE_API_KEY"),
+            http_options=types.HttpOptions(timeout=60000)
+        )
         self.model = "gemini-2.0-flash"
-        self.chat_history = []
-        self.uploaded_files = []
-        self._initialize_chat_history()
-        self.cache_name = ""
+        self.chat = self._initialize_chat(pdf)
 
-    def _initialize_chat_history(self):
+    def _initialize_chat(self, pdf):
         """Initialize the fixed prompt content and upload reference files once"""
         upload_time = time.time()
         base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -38,15 +32,14 @@ class AIClient:
         upload_duration = time.time() - upload_time
         print(f"Reference files uploaded in {upload_duration:.2f} seconds.")
 
-        print("Reference files uploaded successfully.")
-        self.chat_history = [
+        chat_history = [
             # Rules and Schema
             types.Content(
                 role="user",
                 parts=[
                     types.Part.from_text(text="""These are the rules and schema which you will use to extract contents from provided exam question papers (PDF) later:
     **GENERAL RULES**
-    - Avoid null values at ALL COSTS.
+    - **MOST IMPORANT**: AVOID NULL VALUES AT *ALL COSTS*.
     - Each main_question, question, and sub-question consists of a number and a content_flow array.
     - The JSON output must follow this format:
         - main_questions → Top-level questions numbered \"1\", \"2\", \"3\", etc.
@@ -447,41 +440,21 @@ Do not copy exactly from these references when generating JSON output, ONLY stud
                     types.Part.from_text(text="""Understood. I have carefully studied the second reference input and output. I'm now well-equipped with different scenarios and ready to work on the actual PDF content.
     """),
                 ],
-            )
-        ]
-        
-        
-
-    def _process_single_range(self, pdf_bytes: bytes, start: int, end: int) -> dict:
-        """Process a single question range with automatic retries"""
-        start_time = time.time()
-        current_message = self.chat_history.copy()
-        current_message.extend([
+            ),
+            # User input
             types.Content(
                 role="user",
                 parts=[
-                    types.Part.from_bytes(data=pdf_bytes, mime_type="application/pdf"),
-                    types.Part.from_text(text=f"Extract **Main Questions {start} to {end}** ONLY. Do not extract anything else.")
+                    types.Part.from_bytes(data=pdf, mime_type='application/pdf'),
+                    types.Part.from_text(text="Extract this PDF."),
                 ]
             )
-        ])
-
-        response = self.client.models.generate_content(
+        ]
+        chat = self.client.chats.create(
             model=self.model,
-            contents=current_message,
-            config=types.GenerateContentConfig(
-                temperature=0.2,
-                top_p=0.9,
-                response_mime_type="application/json"
-            )
+            history=chat_history
         )
-        
-        end_time = time.time()
-        elapsed_time = end_time - start_time
-        print(f"API usage for range {start}-{end}: {response.usage_metadata}")
-        print(f"Total elapsed time for range {start}-{end}: {elapsed_time} seconds")
-        
-        return response
+        return chat
     
     def extract_questions(self, pdf_bytes: bytes, ranges: List[Tuple[int, int]]) -> List[dict]:
         """Process multiple question ranges with comprehensive error handling"""
@@ -496,7 +469,22 @@ Do not copy exactly from these references when generating JSON output, ONLY stud
                 total_attempts += 1
                 try:
                     print(f"Question {start}-{end} (Attempt {attempt})")
-                    response = self._process_single_range(pdf_bytes, start, end)
+                    extract_time=time.time()
+                    response = self.chat.send_message(
+                        message=f"Extract ONLY **Main Questions {start} to {end}** from the provided PDF.",
+                        config=types.GenerateContentConfig(
+                            temperature=0.2,
+                            top_p=0.9,
+                            response_mime_type="application/json",
+                            system_instruction=[
+                                types.Part.from_text(text="""You are an AI assistant tasked with extracting structured data from an exam question paper PDF.
+                                                     Return your output in a clean, hierarchical JSON format that accurately reflects the structure of the questions.
+                                                     Strictly no null values allowed."""),
+                            ],
+                        )
+                    )
+                    extract_time = time.time() - extract_time
+                    print(f"Question {start}-{end} extracted in {extract_time:.2f} seconds.")
                     response_json = json.loads(response.text)
                     results.extend(response_json["main_questions"])
                     range_success = True

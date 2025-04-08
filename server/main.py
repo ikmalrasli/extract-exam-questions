@@ -101,7 +101,7 @@ def extract_data(pdf, document_id):
     start_time = time.time()  # Capture the start time
     full_json = {}
     combined_main_questions = []  # Initialize a list to hold combined questions
-    ai_client = AIClient()
+    ai_client = AIClient(pdf)
     
     ranges = [(1, 4), (5, 8), (9, 11)]
 
@@ -151,7 +151,7 @@ def extract_data(pdf, document_id):
         supabase.table("documents").update({"data": full_json, "status": "extracted"}).eq("id", document_id).execute()
         end_time = time.time()  # Capture the end time
         elapsed_time = end_time - start_time  # Calculate elapsed time
-        print(f"Total elapsed time: {elapsed_time} seconds")
+        print(f"Total elapsed time: {elapsed_time:.2f} seconds")
         
         return {
             "status": "success",
