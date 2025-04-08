@@ -20,7 +20,6 @@ class AIClient:
         self.chat_history = []
         self.uploaded_files = []
         self._initialize_chat_history()
-        self.cache_name = ""
 
     def _initialize_chat_history(self):
         """Initialize the fixed prompt content and upload reference files once"""
