@@ -1,5 +1,6 @@
 import os
 import base64
+import time
 from google import genai
 from google.genai import types
 
@@ -7,6 +8,9 @@ def get_ai_response(file, start, end):
   client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
   
   model = "gemini-2.0-flash"
+  
+  print("uploading files")
+  upload_start = time.time()
   
   # Get reference files
   base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -22,6 +26,9 @@ def get_ai_response(file, start, end):
     client.files.upload(file=reference_output_2_file_path)
   ]
   
+  upload_end = time.time()
+  print(f"Upload time: {upload_end - upload_start}")
+
   fixed_contents = [
         # Rules and Schema
         types.Content(
@@ -462,11 +469,14 @@ Do not copy exactly from these references when generating JSON output, ONLY stud
         ],
     )
   
+  response_start = time.time()
   response = client.models.generate_content(
     model = model,
     contents = fixed_contents,
     config = generate_content_config
   )
+  response_end = time.time()
+  print(f"Response time for questions {start} to {end}: {response_end - response_start}")
   
   print(response.usage_metadata)
   return response
