@@ -1,4 +1,6 @@
+import random
 import os
+import asyncio
 import json
 import base64
 import time
@@ -14,10 +16,11 @@ class AIClient:
             http_options=types.HttpOptions(timeout=60000)
         )
         self.model = "gemini-2.0-flash"
-        self.chat = self._initialize_chat(pdf)
+        self.fixed_content = None
+        self.fail_once_tracker = {}
 
     def _initialize_chat(self, pdf):
-        """Initialize the fixed prompt content and upload reference files once"""
+        """Initialize the fixed prompt content and upload reference files once."""
         upload_time = time.time()
         base_dir = os.path.dirname(os.path.abspath(__file__))
         reference_files = [
@@ -28,11 +31,14 @@ class AIClient:
         ]
         
         print("Uploading reference files...")
-        self.uploaded_files = [self.client.files.upload(file=file_path) for file_path in reference_files]
+        # Use await here to upload files asynchronously
+        self.uploaded_files = [
+            self.client.files.upload(file=file_path) for file_path in reference_files
+        ]
         upload_duration = time.time() - upload_time
         print(f"Reference files uploaded in {upload_duration:.2f} seconds.")
 
-        chat_history = [
+        self.fixed_content =  [
             # Rules and Schema
             types.Content(
                 role="user",
@@ -445,76 +451,89 @@ Do not copy exactly from these references when generating JSON output, ONLY stud
             types.Content(
                 role="user",
                 parts=[
-                    types.Part.from_bytes(data=pdf, mime_type='application/pdf'),
-                    types.Part.from_text(text="Extract this PDF."),
+                    types.Part.from_bytes(data=pdf, mime_type='application/pdf')
                 ]
             )
         ]
-        chat = self.client.chats.create(
-            model=self.model,
-            history=chat_history
-        )
-        return chat
     
-    def extract_questions(self, pdf_bytes: bytes, ranges: List[Tuple[int, int]]) -> List[dict]:
-        """Process multiple question ranges with comprehensive error handling"""
-        results = []
-        total_attempts = 0
-        
-        for start, end in ranges:
-            range_success = False
-            last_exception = None
-            
-            for attempt in range(1, 3):  # Maximum 5 attempts per range
-                total_attempts += 1
-                try:
-                    print(f"Question {start}-{end} (Attempt {attempt})")
-                    extract_time=time.time()
-                    response = self.chat.send_message(
-                        message=f"Extract ONLY **Main Questions {start} to {end}** from the provided PDF.",
-                        config=types.GenerateContentConfig(
-                            temperature=0.2,
-                            top_p=0.9,
-                            response_mime_type="application/json",
-                            system_instruction=[
-                                types.Part.from_text(text="""You are an AI assistant tasked with extracting structured data from an exam question paper PDF.
-                                                     Return your output in a clean, hierarchical JSON format that accurately reflects the structure of the questions.
-                                                     Strictly no null values allowed."""),
-                            ],
-                        )
-                    )
-                    extract_time = time.time() - extract_time
-                    print(f"Question {start}-{end} extracted in {extract_time:.2f} seconds.")
-                    response_json = json.loads(response.text)
-                    results.extend(response_json["main_questions"])
-                    range_success = True
-                    break
-                except Exception as e:
-                    last_exception = e
-                    print(
-                        f"Attempt {attempt} failed for range {start}-{end}. "
-                        f"Error: {str(e)}"
-                    )
-                    print(response.text)
-                    print(f"^^^^^^^ questions {start}-{end} ^^^^^^^")
-            
-            if not range_success and last_exception:
-                print(
-                    f"Failed to process range {start}-{end} after 5 attempts. "
-                    f"Last error: {str(last_exception)}"
-                )
-                raise RuntimeError(
-                    f"Failed to extract questions {start}-{end} after 5 attempts. "
-                    f"Original error: {str(last_exception)}"
-                ) from last_exception
-        
-        print(
-            f"Completed processing all ranges. Total attempts: {total_attempts}. "
-            f"Successfully extracted {len(results)} questions."
-        )
-        return results
+    async def extract_questions(self, ranges: List[Tuple[int, int]]) -> List[dict]:
+        print("Extracting questions...")
 
-    @staticmethod
-    def convert_pdf_to_part(pdf_bytes: bytes):
-        """Utility method for PDF conversion"""
-        return {"mime_type": "application/pdf", "data": base64.b64encode(pdf_bytes).decode("utf-8")}
+        def build_tasks(indices):
+            return [
+                self.generate_response(ranges[i][0], ranges[i][1], i)
+                for i in indices
+            ]
+
+        max_retries = 2
+        total_tasks = len(ranges)
+        results = [None] * total_tasks
+        pending_indices = list(range(total_tasks))
+
+        for attempt in range(1, max_retries + 1):
+            print(f"🔁 Attempt {attempt} for tasks: {pending_indices}")
+            tasks = build_tasks(pending_indices)
+            attempt_results = await asyncio.gather(*tasks, return_exceptions=True)
+
+            next_pending_indices = []
+
+            for i, res in zip(pending_indices, attempt_results):
+                if isinstance(res, Exception):
+                    print(f"[❌] Task {i} failed on attempt {attempt}: {res}")
+                    next_pending_indices.append(i)
+                else:
+                    results[i] = res
+
+            if not next_pending_indices:
+                break  # all succeeded
+            pending_indices = next_pending_indices
+
+        # Now process results
+        full_json = {}
+        combined_main_questions = []
+
+        for i, result in enumerate(results):
+            if isinstance(result, Exception) or result is None:
+                print(f"[‼️] Task {i} failed after {max_retries} attempts.")
+                continue
+            try:
+                json_data = json.loads(result)
+                combined_main_questions.extend(json_data.get('main_questions', []))
+            except json.JSONDecodeError as e:
+                print(f"[⚠️] JSON parsing failed for task {i}: {e}")
+
+        full_json['main_questions'] = combined_main_questions
+        return full_json
+
+
+    async def generate_response(self, start, end, index: int ) -> str:
+        start_time = time.perf_counter()
+        full_prompt = self.fixed_content.copy()
+        full_prompt.append(
+            types.Content(
+                role="user",
+                parts=[
+                    types.Part.from_text(text=f"Extract **Main Questions {start} to {end} ONLY**")
+                ]
+            )
+        )
+        
+        response = await self.client.aio.models.generate_content(
+            model=self.model,
+            contents=full_prompt,
+            config=types.GenerateContentConfig(
+                temperature=0.2,
+                top_p=0.9,
+                response_mime_type="application/json",
+                system_instruction=[
+                    types.Part.from_text(text="""You are an AI assistant tasked with extracting structured data from an exam question paper PDF.
+                                            Return your output in a clean, hierarchical JSON format that accurately reflects the structure of the questions.
+                                            Strictly no null values allowed."""),
+                ],
+            )
+        )
+        
+        elapsed = time.perf_counter() - start_time
+        print(f"⏱️ Prompt {index + 1} took {elapsed:.2f} seconds")
+        
+        return response.text

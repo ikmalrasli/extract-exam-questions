@@ -97,61 +97,24 @@ async def analyse_pdf(background_tasks: BackgroundTasks, pdf_file: UploadFile = 
     except Exception as e:
         raise HTTPException(status_code=500, detail={"status": "error", "message": str(e), "data": None})
 
-def extract_data(pdf, document_id):
+async def extract_data(pdf, document_id):
     start_time = time.time()  # Capture the start time
-    full_json = {}
-    combined_main_questions = []  # Initialize a list to hold combined questions
     ai_client = AIClient(pdf)
+    
+    # Initialize the chat asynchronously
+    ai_client._initialize_chat(pdf)  # Make sure to await this
     
     ranges = [(1, 4), (5, 8), (9, 11)]
 
     try:
-        combined_main_questions = ai_client.extract_questions(pdf, ranges)
-        full_json = {"main_questions": combined_main_questions}
+        # Await the extraction of questions asynchronously
+        full_json = await ai_client.extract_questions(ranges)
         
-        # Call the cropping function and get cropped images
-        # cropped_images = get_images(pdf, full_json)
-
-        # for cropped_image, expected_num, expected_type, page_num in cropped_images:
-        #     # Validate image
-        #     if cropped_image is None or cropped_image.size == 0:
-        #         print(f"Invalid image data for page {page_num} - skipping")
-        #         continue
-            
-        #     try:
-        #         h, w = cropped_image.shape[:2]
-        #         if h == 0 or w == 0:
-        #             print(f"Empty image dimensions for page {page_num} - skipping")
-        #             continue
-        #     except Exception as e:
-        #         print(f"Invalid image format for page {page_num}: {str(e)} - skipping")
-        #         continue
-
-        #     # Encode image
-        #     success, buffer = cv2.imencode('.jpg', cropped_image, [cv2.IMWRITE_JPEG_QUALITY, 90])
-        #     if not success or buffer.size == 0:
-        #         print(f"Failed to encode image for page {page_num} - skipping")
-        #         continue
-
-        #     # Create safe filename
-        #     file_name = f"page_{page_num}_{expected_type}_{expected_num}.jpg"
-        #     file_name = re.sub(r'[^\w\-_. ]', '_', file_name)
-            
-        #     # Save image
-        #     try:
-        #         supabase.storage.from_("img").upload(f"{document_id}/{file_name}", buffer.tobytes())
-        #         file_url = supabase.storage.from_("img").get_public_url(f"{document_id}/{file_name}")
-        #         update_json_with_url(full_json, page_num, expected_type, expected_num, file_url)
-                
-        #         print(f"Successfully uploaded image. URL: {file_url}")
-        #     except Exception as e:
-        #         print(f"Failed to upload image {file_name}: {str(e)}")
-        #         continue
-                
+        # Update the document with the extracted data
         supabase.table("documents").update({"data": full_json, "status": "extracted"}).eq("id", document_id).execute()
         end_time = time.time()  # Capture the end time
         elapsed_time = end_time - start_time  # Calculate elapsed time
-        print(f"Total elapsed time: {elapsed_time:.2f} seconds")
+        print(f"Total elapsed time (with file upload): {elapsed_time:.2f} seconds")
         
         return {
             "status": "success",
