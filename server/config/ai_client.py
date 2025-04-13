@@ -1,8 +1,6 @@
-import random
 import os
 import asyncio
 import json
-import base64
 import time
 from typing import List, Tuple
 from google import genai
@@ -17,7 +15,6 @@ class AIClient:
         )
         self.model = "gemini-2.0-flash"
         self.fixed_content = None
-        self.fail_once_tracker = {}
 
     def _initialize_chat(self, pdf):
         """Initialize the fixed prompt content and upload reference files once."""
