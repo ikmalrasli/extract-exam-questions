@@ -415,7 +415,7 @@ class AIClient:
                     types.Part.from_uri(file_uri=self.uploaded_files[0].uri, mime_type=self.uploaded_files[0].mime_type),
                     types.Part.from_uri(file_uri=self.uploaded_files[1].uri, mime_type=self.uploaded_files[1].mime_type),
                     types.Part.from_text(text="""Attached here are the first input and output examples that can be used as **reference** when extracting contents from provided PDF later.
-Do not copy exactly from these references when generating JSON output, ONLY study the reference PDF and the output structure.""")
+**DO NOT** copy exactly from these references when generating JSON output, ONLY study the reference PDF and the output structure.""")
                 ]
             ),
             # Model Acknowledgement
@@ -433,7 +433,7 @@ Do not copy exactly from these references when generating JSON output, ONLY stud
                     types.Part.from_uri(file_uri=self.uploaded_files[2].uri, mime_type=self.uploaded_files[2].mime_type),
                     types.Part.from_uri(file_uri=self.uploaded_files[3].uri, mime_type=self.uploaded_files[3].mime_type),
                     types.Part.from_text(text="""Attached here are the second input and output examples that can be used as reference when extracting contents from provided PDF later.
-Do not copy exactly from these references when generating JSON output, ONLY study the reference PDF and the output structure.""")
+**DO NOT** copy exactly from these references when generating JSON output, ONLY study the reference PDF and the output structure.""")
                 ]
             ),
             # Model Acknowledgement
@@ -519,13 +519,13 @@ Do not copy exactly from these references when generating JSON output, ONLY stud
             model=self.model,
             contents=full_prompt,
             config=types.GenerateContentConfig(
-                temperature=0.2,
+                temperature=0.1,
                 top_p=0.9,
                 response_mime_type="application/json",
                 system_instruction=[
                     types.Part.from_text(text="""You are an AI assistant tasked with extracting structured data from an exam question paper PDF.
                                             Return your output in a clean, hierarchical JSON format that accurately reflects the structure of the questions.
-                                            Strictly no null values allowed."""),
+                                            Strictly no null values allowed. DO NOT COPY FROM THE REFERENCE OUTPUT."""),
                 ],
             )
         )
