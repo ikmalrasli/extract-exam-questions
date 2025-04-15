@@ -99,16 +99,16 @@ async def analyse_pdf(background_tasks: BackgroundTasks, pdf_file: UploadFile = 
 
 async def extract_data(pdf, document_id):
     start_time = time.time()  # Capture the start time
-    ai_client = AIClient(pdf)
+    ai_client = AIClient()
     
     # Initialize the chat asynchronously
-    ai_client._initialize_chat(pdf)  # Make sure to await this
+    ai_client._initialize_chat()  # Make sure to await this
     
     ranges = [(1, 4), (5, 8), (9, 11)]
 
     try:
         # Await the extraction of questions asynchronously
-        full_json = await ai_client.extract_questions(ranges)
+        full_json = await ai_client.extract_questions(pdf, ranges)
         
         # Update the document with the extracted data
         supabase.table("documents").update({"data": full_json, "status": "extracted"}).eq("id", document_id).execute()
